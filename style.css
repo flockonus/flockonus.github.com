@@ -359,6 +359,14 @@ body.twoCol .col3, #projects-tab .col1 {
 	padding: 0 0 0 15px;
 } 
 
+#projects-tab > .col1 {
+  padding: 0 0 0 0;
+}
+
+#projects-tab > .col2 {
+  padding: 0 0 0 20px;
+}
+
 /* 1 COLUMN STYLES AND LAYOUT */
 
 body.oneCol .col1,
@@ -522,7 +530,7 @@ p.description{
 
 .pics.projects{
   height: 290px;
-  width: 380px;
+  width: 370px;
 }
 
 .pics.projects img{
