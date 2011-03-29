@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>@FlockonUS - Fabiano PS - Developer</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <!--link href="./files/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css" /-->
+  
+  
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./files/jquery.transform.js"></script><!-- https://github.com/lrbabe/jquery.transform.js -->
+  <script type="text/javascript" src="./files/jquery.cycle.lite.min.js"></script>
+  
+  
+  <!--[if IE]><style>.capR { margin-left: -14px; }</style><![endif]-->
+</head>
+
+<body>
+	
+    <div id="menubar">
+      <ul>
+        <li class="current"><span class="capL">&nbsp;</span><a href="index.html">Home</a><span class="capR">&nbsp;<!--[if IE]> <![endif]--></span></li>
+        <li><span class="capL">&nbsp;</span><a href="projects.html">Projects</a><span class="capR">&nbsp;<!--[if IE]> <![endif]--></span></li>
+        <li><span class="capL">&nbsp;</span><a href="onecolumn.html">About this site</a><span class="capR">&nbsp;<!--[if IE]> <![endif]--></span></li>
+      </ul>
+        
+    </div>
+    
+    <div id="bodyBackground">
+		<div id="nebula">
+			<canvas style="display:none" id="canvas" width="285" height="285"></canvas>
+			<canvas style="display:none" id="canvas3" width="570" height="570"></canvas>
+			<canvas id="canvas2" width="570" height="570">*** THIS BROWSER DOES NOT SUPPORT THE CANVAS ELEMENT ***</canvas>
+		</div>
+		
+	<div id="container">
+    
+      <div id="header">
+        <h1><a href="#">Fabiano PS</a></h1>
+        <h2>Web dev on the Internetz</h2>
+      </div><!-- end #header -->
+    
+    <div id="col1">
+    
+      <h2>Welcome</h2>
+      
+      <p>
+        <b>Fabiano Pereira Soriani personal Hub!</b>
+      </p>
+      <img class="floatImgR" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAAAAADmVT4XAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAl2cEFnAAAAgAAAAIAAMOExmgAAEdtJREFUeNrtW1lTY0l25vf4n3jCD36xIybCDw5H2J6HsT0zdk+7u13dtS9UsRSCQmKR2EFAgdhXiUXsYhP7IhWbACEhQLvQzXuPM/PuF4Guqhj3ixXVgFJXeb48eZbvnMzOg1/5lff/AL59Cg44/O9XAkCEk9evogEsnGVZsngWsQh9pRa+EgBdOaLKj19Fo2nyB8u//z8AQOSwLP6V2pnrt3WMtBQ3tjfMxIgqcldD7gCwBCKHixxPNw0Ouzdmp+aeWGqN5d+9aQsCmzOEnAGQnYf48fJAd3/94qVvrHslZDB7uv1L7aPGP/YkiD3kBCFHAByVf7jgWArBVdf54dgKRItrp+qdrBfiXbvbtVN/WQ0Q8Ry4691pYOFN37EjCFD6y0B7ZeJLEs16Jtec9ZVLpzmZYk4AsJWxEG0oWDRiwTu/7Vq55Y5aGgz5H8f3KuyVc0z7v/weFv+qB5gctJALAGrloy+eBKEvDImWf3t+EZhs6ir6d9MqePungkznaFcI2H/4gTz2lwDAAYIvv/z3gOsKFsdhYTD89D9//93znyuOCTAOzm0umw+4ZNffFyBOvyXqB4DFwMHbtnSlEzg08Nn4JewZKLAcsSQe4o+i72rNZ/g3oPg/9wDSrYMcAHBwUV39ecCE5cN1eUur0TYVxNIRUTgHt/32WyKfY2DiP9IDm3otMScAbwbWapaW8E7c9OPNpuFXDjzUQYmbcuhPpYONjw4Az77ZfLi+XZuA5FJPCKPgcAISxXP0HX2D9TOwGm7Ua4n6ASCoXI5OjdUPTzg303T9agniW4x037Zt1WsG+gFA6vlEpGwOPIEsDAR/2GnYJ/bwqABY2O2brbJh1dNo+MDysAo2/mkgrNMP9QLAsy5Y9/c9xOx4ZWdkQhy1QkhbbR06jSAHDTgnRsYT/FYLZIhTZV86SIcw2Jn6RwaAbdBinxzjZ5WMgHc9UbxoGXhs6w9enUagGwCkW3vbIoKt46jscTrsI5OrCWkE/05sjAzZt+LYTsb+67G9ADvBcGRRkhbd857eRKOnK63r0ljas3pxGbmeWsXZcLzg8QHcjkYXhR3AAFLCFiRPJKsIXInbwcLFP948thdAcmZvSdxXsveIeAErh0KEeMegQ9yfth/dBuIr8+vCpJQWA5fJCKkhYot9v/XYXgCxzdGg7IQQ82rCISfQZUQ/fuJ5dAA3XrewPiKA+TihqQKIfEhdpEigZGHYrDMd6gdw6XbHBA1w7Gnpm3F7AFS8B4tdshrKe8gwC427+oxANwAORpyOGcHOJjZ7nbDfdqKQQeLfdG94MbZSuUYM0mzR54i6QzGC0VnoSlFB2BpdjQDx4Ss5CRP5neBvAkhWLUAaOozAPCYArF/vINNFzX9vCmC2C1JwOCxZGh4+tuL/GuAW0oYjgKWKR9YAdoPZ9U0iMDGdxgn3CWGAxUd0E6htsu3n+E3TCY6DpYUA6+ZHB8Da21NE1tYZqU+MhkN3+9+uUzsk5BA2Zwm6s6ovt5Hyt9dwXKPPD3PhhOXzZM7rOWBwGEw1lbwqKt+iRJggSO4AYlkG/I2mMl/lGcSe3XJ6igNdADi+9Ph4RJa+5xOnRTDsohpIxLFFXoOYFhGUnwI8v9LVO9KpAZwM4eidn2jgyj9YVVpWbqqyTk6ajimA6CR5wO+ec7lcC679C670EOBpy9gpZNeBPg1gQmjti6yc0Vh/3Ll54PV6djfn+7x8IQAdIYDgu09VlZUmo6Gx7qUhCfCHjYDlOLsd6AMAN7W34ZXFQ743oihFhMC8O8/XKcJ+JfGWoB+u4aD5kQBgijWMd3xnmbd5bGz8SyhBMVfoJG0qxCCGQQiPErHPAgAt/sfZAkwyR7F7X87dE95ZGF8mZiokZP6Pl3hbWt1ZE4JOADPjWAPXS5k1iqXdNAs0nZOGXl8B2BYfC8BRJ/4Rd923pQh6NgEp0rMAoGvpcQBgMxs6IEkonnlLSTlIi0G5RuABNBw/khtycNqPjWB577494OBTWMlASC2PAVRnp6Y6AXDwGc8X6LpLc3jDY6H2UKltXgOnluy0SF8kJK7ehXd6+kI9I23bEYdMw2fVduOHXl5B8052VpQFgKLoHx8C2FnTzsj3p7EbmOJCVBQzws/plUaaQr4NgASEBfswXH5WGQGefX9kcLBnoLuuYZcIQ6xcJ706MUR1ENOHACjrTaKD6brGoktx04VwEwleHmwf+rwxTkORI68rtnXkooc1gNehqDtYSEQ2Zmg64D2ek9s0+HcqGb1a/6GTdDDIs+6/29UjP4sGUFLBOonYuINGPAjunwTOb5KEjaDYqdPuqK0wWNuf/01diJfJwmytvo7tAwBIWkOKOagS+gjrT1RXF5WYDfUdVS29Zuvc2/LVA6tjtddd+kUwEcxJJju/mRNiBdxqvI6FdTqv8/umKHiuwO6NeKPgngM4Wh79uBAAuVXXM/ethQkWzWgPgTD7MjN0552f5quCqR4O2k/hsA7AX9FPzksEk8UUriamrz5/AADcJZV4Zc2kAUf6QAcf361Wh/3Pz2HmzV7nM5eieYa/ON+qs0PxEABN8UmLMljvo5kfe3x81vLi+Qfzu/L2xeoPHUIYEhSQLrz81uJU1Y0UW3JEt9VRvlXHAuoPnE2sNlTbK+dh+ZxGPbFJtaSzMszmBZxKOHkhqDkCxK/26hLOlyF2A2dBuJ4HiZDgh+rWv7VXzCtAZDlkwXTZJB6OASt9cB2CUBxSKQBfAsT2DAdhyzcfWIg7wAvHRJMVOzARE68Smf4J7VHpH4LBWd3HNhkBiFMKwkWuJWT+li2xVaQQqviLBd+nO730XADw66OJXiKaCsYLl/UMKHIAp4qVtE62OPSfW2UCoNhyUdEgmQTh6I770gyvombXks4olAkA2UOkES6ZpDBQ478HAa1M943Q+y0AgEkrNpQfIl1JhhVUgTNd2z1nBmQsZAqkmkUD/SoAKM3JPi2EZHIYJoR6wsEHu9OZjurJSMq8DxfWb7EBodeoku/r/vSh/Yz/gDRD5jeavOydVEEfbXThzGQFxH69BugJsbIGvqkzTYWux96bToAnfaEuCHR+ToDqygQVn+6YIDXcuBirsncoMsUB2g+RNRApcPMGuPqih+U/6seV73qVn9i8WCrTaBE2TRPlXw7rPbK6DwCnTCwNI8Agmv9uO4pxIsCTu1YgDf727oBSAxy3bj2heeK8Q4rWXwUA5BNR4vdlEcENWQRHRTNE8YFhmhH3miuane6tnd29/TV7V3M5uUBBvh1yZNQAlwMAmffi9LcGrPQm+daJdcD0pukj7M3heH+3raOzo39h60ucpzAc+HgvUOYKIajoBCCyIT6wneSn5aMiiL3FzA8cPr51puGsAurLMdKyQ1InhSYUxDIog+veD0CIhCS3NQECCcF6IfmxxO8yESP0ZVhWTBtw9kcmQ4xIp0G3BgQ+xgdfBirGAImxCUHhCvb0QUCqRCyTJ9I+/BGO3MtT3Y7Kto5aY2lJial7cGRiwFhtievUgOAIRItk9tibC4kcIZgxQBr130oEWO3u5M0Pxg1Hd8+w238cuAwGLvxBT99nq7WjqNGTvhMZ7nFDLJvhD8gjvr2h1XUDI9tT/GUMYOQQWClFy85IDbWhe+L6rrbxM/MLgTtZLFMkRHyEY8/WXf3GwtKKzkEYMPIqJ804KLFvH+9hYsYbmEY+A/ZiYAUeI76oEeJsdtQ0raUqeRrhQoUd3+m1GEotzXYvPwNT4Be1jcBZFp1sercfFgtlMRpSFgGLJcmMd8p4w251auhynnrtREGh8WpTQ83YfkhQL209zndQO+R7cm9TENnubmm1Obd86mMjYNuLEpA5A1C2Fq/SOEieYtsJ7qsps6lv/4oKYxmGEUNqquhaDAYI8rfpGq98a3arubbOPLjjmpubc4XCG52Vfej+Lj3xkK4VdarO422bD73hqfqKvjOGtwOW3zte8Sw4u+XK1zQHx/YGs22kfROYoN+3sjrY2tLUUFJQvnz74JU+PI+nQR2m83jZGFt4psY8esRvhBRSOFYIMByYzgVCxsDEd45qx+5Z+MbV8mpEXBB1AC7b7QqIf1LHozyi6qRvw2munjwlEyCFpwpuRrMtOAZ5K2Ah9uxHqhkaIj6OAkPjIRmSrlc8oAJbUA0gfTDSZu1cOk5Ia1d9QaToCHxN1BMRnFR70uTaIN0iuH06J5UJ2dMvBtBxrNqDvOa+nbiQbTPyFzHaQKqNahi2Wi5A5OxEH6e/AOglgMQP6vbUAFLC3Y8H0HP8NcZemm4X+liQIwxB9NOFfgCkpxvQ2EDWfeO/x4I7iI0gOq0sGunm/BTKAQAki1MaAPq+jVd64MMocEAVqxZheOE9CBapg4FhVy9AoIkD+jSH01JcLtmlzJQGY6fUS9JhhHBVrH5MDwBB11ItDBLbQmnY/XOSsngV/3oAQLQF7k9G966e2NpZUlwmX6PyN5bm/5Xc1SA+ySpvlNyHA2vAlJsGpJR/O6kigHQ0sdnym+9LPvSdCF0jtQoyocB8sSQTgPvUJhXELGwsyO5LRnZba8oqrKMJNuHtL7REpXghVfayutRb0H5nC6TUc/clKxxslyIHowOxg52DcyTWDs4XfuFME6TkJpdmCrXgZF+mYwvEdgAO8ZRKY/nH3dI8Mg2jdyoJe4OhEtkXOQVQ1Xs6cyD/DgAcZVtbVtOatcssK4wLE84aBIVG1DtOyucXiiwvC9XUJtx9ANDGcOXrN69e5+e/z3//4X1+/qua6oJSY21v3+Cw3bljQ+kOJ7Da2YSfvI+8vHt7TmUHnJjVQ5m9AIfIm5ubiPAK30Sj4Zur4MXG6Mj44lnrTcMUKIWDYol8KoYfDzKXg/IXhIZBpDmDBjhWOuzJMAXUGDxCGQKqkCu0MmiiKn+gJyJ8U4DfFM0QirURVtxgYoXg+l0IB1vFFKJ4EopSPu/61MSnj9kioOilDBiP1Ok405I5uU9Jbo1VJO72nPiHgpPGSvtY/1DRWx13+ukECEp3HgYgWpakE+CsibuNTzJw2FvTHeW34PDncz1NEbIemzcbAGVMIusKvE5CBvEJR98WudlObPAWRsz0uCzrC0H1hspcMpVmKmtnYbZMW1dTDaWj0v/ZQ05ISvQC+OR+GABI6haDzJhZXcyI6Ulxsx1BlUMvAONqFiMEpaMTAFMmlQYEIxUtlaMdMvjpWF9jDANwg5ITZS7PVTvSWq5kcVIm4It4/pI/zDRlaNBn8kxcvE9nBaAGc7tglvsanNC8kbv1scVFx+fGrkzt60w0H8F0U44AwiMyAEWMIDnsdHl6uKVtZWN9rfPNoDYUkl7BXQQs7A/kCODCZhGb75omtt/p2A4wQhX5bk9jBFh3O3ejEwe+xmxeoPnCtbMyBnJ2Vc8pXmu6he4GjRvgONl3N0HgWFis6lTlIfRgGMeIW6t4ABr5fA7jgyaWXTt6B8BphpMb/HzRpQoAiMTmPgChhYGA4shEPZmoGIg/iWr2m4W1DOfXBIDqflde33SIewAEVuTE0J7iFOfO5xxhlGBp0x6VIrBPZyApLLw/UwEYKC18YpkNU+YpcVOlAHbud52UcTKIVVNXOYczQx+0Xo/r+N5MV14QvD9VAcASgv1FTwwm+zVv43xfV+Z1CJr+bKyzbfKbzScfxYvlIqMlT8vjWoPH3/usveDOh/bCU60RkmX6nfUvfykYWfMnhMYrIbuIz+D2WfBMVX00De98udLKQTD11/UbDKiLIp5ItHvUAIThQq0GyCaSedNeZ+Xbp//zNL+so3cjgEAwDQZ67GR/L7c6S6orXn8oKjGUGErLyorrJxoMxR8Lvq8TOkNq0oIltaqvPYn8VQNAMCSxPcrFPHMLLsvLpz+9KjWNn6eIKofHgBEat8yZd293d2dnZ3d7f6Tf6Vpd88QBKXsrCg0Yr5UAOLHRUeeHTIFI2F7poCS0uTZS/qzA4jiJNW7Q4ykWZej3y6cE2hekS+PyDTs5f4EtAPdGQr5fyfIBZpkBSGy1GOv2xQggfiwdU4ndYgWPlQ6bIGlVn/5xAoO2nEP2UEy6YUOLIBiCtiWvYtGya6p69jhP2qTQJU+AAZhUceB/AV3azXEs9+wDAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDExLTAzLTI0VDE3OjEyOjU5KzAwOjAwNnXCggAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMS0wMy0yNFQxNzoxMjo1OSswMDowMEcoej4AAAAXdEVYdHBuZzpiaXQtZGVwdGgtd3JpdHRlbgAIp8Qs8gAAAABJRU5ErkJggg==" alt="Photo of Fabiano Pereira Soriani's head screaming" title="Fabiano Pereira Soriani screaming" />
+  	  
+  	  <p>
+  	    In this site you will (hopefully) find <b>references</b> to pretty much every other reference I have on the web as well as some 'portifolio' to jobs done and experiments.
+  	  </p>
+      
+      <div class="pJustify">
+      
+        <h3>Skills</h3>
+        
+        <p>
+          My devopment efforts are aimed at <a href="http://www.rubyonrails.pro.br/"><b>Ruby on Rails</b></a>, <a href='https://developer.mozilla.org/en/javascript'><b>JavaScript</b></a>, <a href="http://studio.html5rocks.com/"><b>HTML5</b></a href="http://studio.html5rocks.com/"> and <a href="http://www.phonegap.com/"><b>Phonegap</b></a href="http://www.phonegap.com/">, but also other techs come along.
+        </p>
+        <p>
+          I find games are very awesome too. See if you can find the easter egg on this page :)
+        </p>
+      
+      </div>
+      
+    </div><!-- end #col1 -->
+    
+    <div id="col2" class="news pJustify">
+    
+      <h2>blogs</h2>
+      
+      <h4><a href="http://fabiano2business.wordpress.com">Developer Blog</a> <span>5/30/08</span></h4>
+      
+      <p>DD MMM - Last Article Title</p>
+      
+      <h4><a href="http://fabianosoriani.wordpress.com">Business Blog</a> <span>5/30/08</span></h4>
+      
+      <p>DD MMM - Last Article Title</p>
+	  
+	  <h3>Gallery</h3>
+      
+      <div class="galleryPrev pics personal">
+        <img src="http://images.orkut.com/orkut/photos/OgAAALabrJom8jY40eibx4xjik2LVHdE3Xzo1fOAOj0C-jDiIsv438VxsPyXKR2fw1NBy-lDGBAORVI1B83ZTrrLvWEAm1T1UC2CqbwfRlFWuX7ELkbTIWkK3Jqb.jpg" alt="Fabiano and Friends at celebration"  />
+        <img src="http://images.orkut.com/orkut/photos/OgAAAPClQliWhXYvduCHMc3cDs72yCWnTXgYqIjdyXHuN2e6yGWoScvwnPMizUH-e4j_HYzad6yc-7XsFMMmCugdHyIAm1T1UM1GQZ5PHHst81LCSAUzPS9bt8KT.jpg" alt="Fabiano at Great Barrington MA Ski"  />
+        <img src="http://images.orkut.com/orkut/photos/OgAAAChqpsfCxP_bX4LgNH8KHJWUOsXYvJC_hyrhlaGd1CZ8ci_dH8fOKviO-UZsyrTWFT3gVGZIwkWW3S0teovXlB8Am1T1UPZRPtwPAf7ngt2NTMIP_WhJCwWI.jpg" alt="Fabiano and Friends at club"  />
+        <img src="http://images.orkut.com/orkut/photos/OgAAAG1LbBVNLJiIUXFk9EVG1IRxT2J789sS6poifBPalcMVBxNDp1lZWM_O989qqqnWsp4YxsSe8E8qtvliKPKhnz4Am1T1UM-T6A5uuACD--xG3RARDYCpTYZs.jpg" alt="Fabiano eating Temaki"  />
+        <!--original a href="#"><img src="images/gallery/3.jpg" alt="3" class="floatImgL" /></a-->
+      </div>
+      
+    </div><!-- end #col2 -->
+    
+    <div id="col3" class="pJustify">
+    
+      <h2>Twitter</h2>
+      
+      <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+		  <script>
+    		new TWTR.Widget({
+    		  version: 2,
+    		  type: 'profile',
+    		  rpp: 6,
+    		  //interval: 6000,
+    		  width: 'auto',
+    		  height: 340,
+    		  theme: {
+    			shell: {
+    			  background: 'transparent',
+    			  color: '#ffffff'
+    			},
+    			tweets: {
+    			  background: 'transparent',
+    			  color: '#ffffff',
+    			  links: '#00AEEF'
+    			}
+    		  },
+    		  features: {
+    			scrollbar: false,
+    			loop: false,
+    			live: true,
+    			hashtags: true,
+    			timestamp: true,
+    			avatars: false,
+    			behavior: 'all'
+    		  }
+    		}).render().setUser('flockonus').start();
+      </script>
+      
+    </div><!-- end #col3 -->
+      
+      <div class="clearfloat colBorder"></div>
+      
+	  
+	  
+	  
+	  
+	  
+	  
+    <div id="colFull">
+    
+        <h2>Link HUB</h2>
+        
+        <ul class="cf3rd">
+        	<li><h4>Social</h4></li>
+            <li><a href="http://www.twitter.com/flockonus">Twitter</a></li>
+            <li><a href="https://github.com/flockonus">GitHub</a></li>
+            <li><a href="http://www.facebook.com/fabiano.soriani">Facebook</a></li>
+            <li><a href="http://www.orkut.com.br/Main#Profile?uid=9904543341067523068">Orkut</a></li>
+            <li><a href="https://profiles.google.com/115482505123591323296/buzz">Google Buzz</a></li>
+        </ul>
+        
+  		<ul class="cf3rd">
+        	<li><h4>Contact</h4></li>
+            <li><a class='span-be-gone' id="email" href="#">Email</a></li>
+            <li><a class='span-be-gone' id="skype" href="#">Skype</a></li>
+            <li><a class='span-be-gone' id="msn" href="#">MSN</a></li>
+            <li><a href="#">.</a></li>
+            <li><a href="#">.</a></li>
+        </ul>
+        
+  		<ul class="cf3rd">
+        	<li><h4>All Other</h4></li>
+            <li><a href="http://www.delicious.com/soro" title="HOT!">Delicious<span style="color: red;">*</span></a></li>
+            <li><a href="http://listen.grooveshark.com/#/user/flockonus/7688263?src=5">GrooveShark</a></li>
+            <li><a href="http://stackoverflow.com/users/250019/fabiano-ps">StackOverflow</a></li>
+            <li><a href="#">.</a></li>
+            <li><a href="#">.</a></li>
+        </ul>
+        
+    </div><!-- end #colFull -->
+      
+      <br class="clearfloat" />
+      
+    <div id="footer">
+    
+      <p>Copyright &copy; 2008, yoursite.com - <a href="#">Contact</a> - Designed by <a href="mailto:mrpires@gmail.com">Tony Pires</a></p>
+      
+    </div><!-- end #footer -->
+    
+  </div><!-- end #container -->
+  
+  </div><!-- end #bodyBackground -->
+  
+  <script>
+    j = jQuery;
+    
+    $c = {
+      email: 'fabianosoriani@gmail.com',
+      skype: 'fabiano.pereira.soriani',
+      msn: 'fabianonline@hotmail.com'
+    }
+    
+    var playNebula = true
+    
+    if( !j.browser.webkit ){
+      playNebula = false;
+      j('#nebula').remove();
+      j('#bodyBackground').css( 'background', 'url(images/flare.jpg) no-repeat top center')
+    }
+    
+    
+    // align NEBULA canvas
+    j( function(){
+      var off = j('#container').offset();
+      j('#nebula').css('left', off.left);//.css('top', off.top);
+      j('#container').find('a').attr('target', '_blank');
+      //j('#canvas2').css('width', j('body').width()+"px" ).css('height', j('body').height()+'px');
+    })
+    
+    // Links Animations
+    j('a.span-be-gone').click(function(){
+      var jthis = j(this);
+      var id = jthis.attr('id');
+      jthis.html($c[id]).attr('href','javascript: void(0); ').animate( { transform : 'skew(0, 180deg)' }, 1000  ); //alert("'+$c.email+'")
+      jthis.unbind('click');
+      return false;
+    });
+    
+    
+    // Image cycle
+    $('.pics').cycle({ //http://malsup.com/jquery/cycle/lite/
+      fx: 'custom',
+      cssBefore: { top: 232 }, 
+      animIn:  { top: 0 }, 
+      animOut: { top: -232 } 
+    }); 
+    
+    /*
+    j(document).ready(function(){
+      //debugger
+      if( !j.browser.webkit ){
+        j('#nebula').remove();
+        j('#bodyBackground').css( 'background', 'url(images/flare.jpg) no-repeat top center')
+      }
+    })
+    */
+	// código parabólico, muito legal!
+    // j(this).animate({ transform : 'rotate(180deg)' }, 2000, function(){ j(this).text('OOOOOOI').animate({ transform : 'translate(500px)' }, 2000) });
+  </script>
+  <script type="text/javascript" src="./files/canvas-nebula-demo.js"></script>
+</body>
+</html>
