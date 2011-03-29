@@ -45,7 +45,7 @@
         <h2>a short blurb about you</h2>
         
       </div><!-- end #header -->
-    
+    <section>
     <div id="col1" class="pJustify">
     
     <h2>My Projects</h2>
@@ -113,17 +113,8 @@
       -->
       
     </div><!-- end #col2 -->
-    <script>
+    <script type="text/javascript" charset="utf-8">
       j = jQuery;
-      //var tag_color_bound = {} // 'txt' : 'color' ...
-      
-      //function gimme_tag_color(txt){
-      //  if( !tag_color_bound[txt]){
-          // assign a new color, in order, to the tag entered for the first time
-      //    tag_color_bound[txt] = tag_colors[ _.size(tag_color_bound) ];
-      //  }
-      //  return tag_color_bound[txt];
-      //}
       
       var tag_colors = { 
         "Ruby On Rails" : 'magenta',
@@ -155,17 +146,17 @@
         })
       })
       
-      $('.pics').cycle({ //http://malsup.com/jquery/cycle/lite/
+      $('.projects.pics').cycle({ //http://malsup.com/jquery/cycle/lite/
         fx: 'custom',
         delay:  800,
         cssBefore: { top: 340 }, 
         animIn:  { top: 0 }, 
         animOut: { top: -340 } 
-      }); 
+      });
     </script>
       
       <div class="clearfloat colBorder"></div>
-      
+    </section>  
     <div id="colFull">
     
         <h2>Links</h2>

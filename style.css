@@ -343,9 +343,9 @@ td.ra {
 
 /* 2 COLUMN STYLES AND LAYOUT */
 
-body.twoCol #col1, 
-body.twoCol #col2,
-body.twoCol #col3 { 
+body.twoCol #col1, #projects-tab > #col1,
+body.twoCol #col2, #projects-tab > #col2,
+body.twoCol #col3, #projects-tab > #col3 { 
 	float: left; 
 	width: 375px;
 }
