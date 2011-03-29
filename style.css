@@ -64,9 +64,9 @@ em {
 	font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-#col1 ul,
-#col2 ul,
-#col3 ul,
+.col1 ul,
+.col2 ul,
+.col3 ul,
 ol {
 	line-height: 1.8em;
 	margin: 10px 0 10px 30px;
@@ -256,9 +256,9 @@ td.ra {
 
 /* 3 COLUMN STYLES AND LAYOUT */
 
-#col1, 
-#col2, 
-#col3,
+.col1, 
+.col2, 
+.col3,
 .cf3rd { 
 	float: left; 
 	width: 240px;
@@ -285,24 +285,24 @@ td.ra {
 	line-height: 28px;
 }
 
-#col1 h2, 
-#col1 h3, 
-#col1 h4,
-#col1 a:hover { 
+.col1 h2, 
+.col1 h3, 
+.col1 h4,
+.col1 a:hover { 
 	color: #F57900;
 }
 
-#col2 h2, 
-#col2 h3, 
-#col2 h4,
-#col2 a:hover { 
+.col2 h2, 
+.col2 h3, 
+.col2 h4,
+.col2 a:hover { 
 	color: #CCFF00;
 }
 
-#col3 h2, 
-#col3 h3, 
-#col3 h4,
-#col3 a:hover { 
+.col3 h2, 
+.col3 h3, 
+.col3 h4,
+.col3 a:hover { 
 	color: #00AEEF;
 }
 
@@ -316,20 +316,20 @@ td.ra {
 	font-size: 12px;
 }
 
-#col2,
+.col2,
 .cf3rd {
 	padding: 0 30px;
 } 
 
-#col1 a {
+.col1 a {
 	border-bottom: 1px dotted #F57900;
 }
 
-#col2 a {
+.col2 a {
 	border-bottom: 1px dotted #CCFF00;
 }
 
-#col3 a {
+.col3 a {
 	border-bottom: 1px dotted #00AEEF;
 }
 
@@ -343,34 +343,34 @@ td.ra {
 
 /* 2 COLUMN STYLES AND LAYOUT */
 
-body.twoCol #col1, #projects-tab > #col1,
-body.twoCol #col2, #projects-tab > #col2,
-body.twoCol #col3, #projects-tab > #col3 { 
+body.twoCol .col1, #projects-tab > .col1,
+body.twoCol .col2, #projects-tab > .col2,
+body.twoCol .col3, #projects-tab > .col3 { 
 	float: left; 
 	width: 375px;
 }
 
-body.twoCol #col1 {
+body.twoCol .col1, #projects-tab .col1 {
 	padding: 0 15px 0 0;
 } 
 
-body.twoCol #col2,
-body.twoCol #col3 {
+body.twoCol .col2, #projects-tab .col1
+body.twoCol .col3, #projects-tab .col1 {
 	padding: 0 0 0 15px;
 } 
 
 /* 1 COLUMN STYLES AND LAYOUT */
 
-body.oneCol #col1,
-body.oneCol #col2,
-body.oneCol #col3 { 
+body.oneCol .col1,
+body.oneCol .col2,
+body.oneCol .col3 { 
 	float: none;
 	width: 100%;
 }
 
-body.oneCol #col1,
-body.oneCol #col2,
-body.oneCol #col3 {
+body.oneCol .col1,
+body.oneCol .col2,
+body.oneCol .col3 {
 	padding: 0;
 } 
 
@@ -457,20 +457,20 @@ p.description{
 }
 
 
-#col1 .floatImgR,
-#col1 .floatImgL {
+.col1 .floatImgR,
+.col1 .floatImgL {
 	border: 1px solid #F57900;
 }
 
 
-#col2 .floatImgR,
-#col2 .floatImgL {
+.col2 .floatImgR,
+.col2 .floatImgL {
 	border: 1px solid #CCFF00;
 }
 
 
-#col3 .floatImgR,
-#col3 .floatImgL {
+.col3 .floatImgR,
+.col3 .floatImgL {
 	border: 1px solid #00AEEF;
 }
 
