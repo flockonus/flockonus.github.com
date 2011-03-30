@@ -34,9 +34,10 @@
     
     <div id="bodyBackground">
   		<div id="nebula">
+  		  <img src="images/top_of_canvas2.png" style="position: absolute;" />
   			<canvas style="display:none" id="canvas" width="285" height="285"></canvas>
   			<canvas style="display:none" id="canvas3" width="570" height="570"></canvas>
-  			<canvas id="canvas2" width="570" height="570">*** THIS BROWSER DOES NOT SUPPORT THE CANVAS ELEMENT ***</canvas>
+  			<canvas id="canvas2" width="570" height="260">*** THIS BROWSER DOES NOT SUPPORT THE CANVAS ELEMENT ***</canvas>
   		</div>
 		
       <div id="container">
@@ -216,15 +217,10 @@
           <p class="description">Worked at SGI; a Industrial Process Management web application. </p>
           
           
-          
+          <!--
           <h4><a href="">BASE</a> <span> <time datetime="2009-12-01">November 2010 </time> to <time datetime="now">Today</time> </span>  </h4>
           <p class="tags">Tags: Ruby On Rails, JavaScript, jQuery, HTML5 </p>
           <p class="description">Copy me and past me ;) <a href="http://twitter.com/#!/bbrains">link</a>  </p>
-          
-          <!--
-          <h4><a href="#">Third Article Title</a> <span>5/30/08</span></h4>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent aliquam,  justo convallis luctus rutrum, erat nulla fermentum diam, at nonummy quam  ante ac quam. Maecenas urna purus, fermentum id, molestie in, commodo  porttitor, felis. Nam blandit quam ut lacus.</p> 
-          <p>Vestibulum dictum placerat justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam in odio. Quisque mi felis, sollicitudin id, euismod vel, placerat ac, enim. Vivamus nulla. Donec nisl. Nullam et risus vitae libero semper adipiscing. Praesent sed lectus. Donec tincidunt.</p>
           -->
           
         </div><!-- end #col2 -->
@@ -290,7 +286,7 @@
           <h2>Link HUB</h2>
           
           <ul class="cf3rd">
-          	<li><h4>Social</h4></li>
+          	<li><h4>Social Networks</h4></li>
               <li><a href="http://www.twitter.com/flockonus">Twitter</a></li>
               <li><a href="https://github.com/flockonus">GitHub</a></li>
               <li><a href="http://www.facebook.com/fabiano.soriani">Facebook</a></li>
@@ -308,7 +304,7 @@
           </ul>
           
     		<ul class="cf3rd">
-          	<li><h4>All Other</h4></li>
+          	<li><h4>Other Stuff</h4></li>
               <li><a href="http://www.delicious.com/soro" title="HOT!">Delicious<span style="color: red;">*</span></a></li>
               <li><a href="http://listen.grooveshark.com/#/user/flockonus/7688263?src=5">GrooveShark</a></li>
               <li><a href="http://stackoverflow.com/users/250019/fabiano-ps">StackOverflow</a></li>
@@ -322,7 +318,7 @@
         
       <div id="footer">
       
-        <p>Copyright &copy; 2008, yoursite.com - <a href="#">Contact</a> - Designed by <a href="mailto:mrpires@gmail.com">Tony Pires</a></p>
+        <p>Flockonus &copy; 2011 - Layout inspired by <a href="http://css4free.com/wp-content/uploads/templates/flare/" target="_blank">Tony Pires</a></p>
         
       </div><!-- end #footer -->
       
@@ -334,9 +330,9 @@
     j = jQuery;
     
     $c = {
-      email: 'fabianosoriani@gmail.com',
+      email: ['fabianosoriani','@','gmail.com'].join(''),
       skype: 'fabiano.pereira.soriani',
-      msn: 'fabianonline@hotmail.com'
+      msn: ['fabianonline','@','hotmail.com'].join('')
     }
     
     var playNebula = true
@@ -350,10 +346,12 @@
     
     // align NEBULA canvas
     j( function(){
-      var off = j('#container').offset();
-      j('#nebula').css('left', off.left);//.css('top', off.top);
-      j('#container').find('a').attr('target', '_blank');
-      //j('#canvas2').css('width', j('body').width()+"px" ).css('height', j('body').height()+'px');
+      
+      j('#nebula').css('left',  (j('body').width()/2 - j('#nebula').width()/2)+'px' ).
+                   css('top', (j('#menubar').height() + 10)+'px' );
+      //var off = j('#container').offset();
+      //j('#nebula').css('left', off.left);//.css('top', off.top);
+      //j('#container').find('a').attr('target', '_blank');
     })
     
     // Links Animations
@@ -374,18 +372,21 @@
       animOut: { top: -232 } 
     }); 
     
-    /*
+    
     j(document).ready(function(){
-      //debugger
-      if( !j.browser.webkit ){
-        j('#nebula').remove();
-        j('#bodyBackground').css( 'background', 'url(images/flare.jpg) no-repeat top center')
-      }
+      j('.col1, .col2, .cf3rd').find('a').attr('target', '_blank');
     })
-    */
+    
 	// código parabólico, muito legal!
     // j(this).animate({ transform : 'rotate(180deg)' }, 2000, function(){ j(this).text('OOOOOOI').animate({ transform : 'translate(500px)' }, 2000) });
   </script>
   <script type="text/javascript" src="./files/canvas-nebula-demo.js"></script>
+  
+  <div id="chrome-site">
+    <a href="http://www.google.com/chrome/index.html" target="_blank">
+      <img src="images/best_on_chrome.png" title="*Download Google Chrome*" alt="Best seen on Google Chrome" />
+    </a>
+  </div>
+  
 </body>
 </html>

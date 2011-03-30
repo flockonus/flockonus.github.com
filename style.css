@@ -209,7 +209,7 @@ td.ra {
 	/*background: url(images/flare.jpg) no-repeat top center;*/
 }
 
-#container,#nebula { 
+#container { 
 	width: 780px;
 	margin: 0 auto;
 	text-align: left;
@@ -218,14 +218,24 @@ td.ra {
 
 #nebula {
 	position: absolute;
-	margin: o auto;
-	z-index: -1;
-	top: -8px;
-	overflow: hidden;
+  z-index: -1;
+  top: -8px;
+  overflow: hidden;
+  height: 260px;
 }
 
 #canvas2{
-	width: 780px;
+	/*width: 780px;*/
+}
+
+#chrome-site{
+  position: absolute;
+  top: 5px;
+  left: 7px;
+}
+
+#chrome-site img{
+  border-radius: 0px 10px 0px 10px;
 }
 
 /* HEADER STYLES AND LAYOUT */
@@ -537,6 +547,9 @@ p.description{
   width: 350px;
 }
 
+.span-be-gone{
+  cursor: help;
+}
 
 /* BUTTONS */
 
