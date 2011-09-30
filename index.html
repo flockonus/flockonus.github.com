@@ -462,7 +462,7 @@
     
     function take_a_pic(){
       var canvas = document.getElementById("canvas2");
-      var img    = canvas.toDataURL()//("image/png");
+      var img    = canvas.toDataURL('image/jpeg', 0.5)//("image/png");
       j('body').append( repeat+'<img class="toGif" src="'+img+'"/>' )
       repeat--
       if(repeat)
