@@ -58,9 +58,9 @@
     
     <div id="bodyBackground">
   		<div id="nebula">
-  		  <img src="images/top_of_canvas2.png" style="position: absolute;" />
+  		  <!-- <img src="images/top_of_canvas2.png" style="position: absolute;" /> -->
   			<canvas style="display:none" id="canvas" width="285" height="285"></canvas>
-  			<canvas style="display:none" id="canvas3" width="570" height="570"></canvas>
+  			<canvas style="display:none; " id="canvas3" width="570" height="570"></canvas>
   			<canvas id="canvas2" width="570" height="260">*** THIS BROWSER DOES NOT SUPPORT THE CANVAS ELEMENT ***</canvas>
   		</div>
 		
@@ -348,7 +348,8 @@
     var playNebula = true
     var scrollTarget = "body"
     
-    if( !j.browser.webkit ){
+    // if( !j.browser.webkit ){
+    if( false ){
       playNebula = false;
       scrollTarget = "html"
       j('#nebula').remove();
@@ -452,6 +453,20 @@
       });
       
     })
+    
+    
+    var repeat = 59
+    
+    function take_a_pic(){
+      var canvas = document.getElementById("canvas2");
+      var img    = canvas.toDataURL()//("image/png");
+      j('body').append( '<img class="toGif" src="'+img+'"/>' )
+      repeat--
+      if(repeat) 
+        setTimeout(take_a_pic, 33.3)
+    }
+    
+    setTimeout( take_a_pic, 1000)
     
     
     
