@@ -79,6 +79,9 @@ table {
 ol, ul {
   list-style: none;
 }
+dd > ul{
+  margin: 0 0 3px 25px;
+}
 q:before,
 q:after,
 blockquote:before,

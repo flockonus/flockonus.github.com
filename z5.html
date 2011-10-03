@@ -303,16 +303,100 @@ For each Char:
               
               <section>
               <h2 id="actions">Actions</h2>
-              <div>
-                
-              </div>
+<p>
+  Are decided at the begin of the turn, one per char, per turn, no limits.
+</p>
+<p>
+  May be assigned to individuals or groups, except Move, that shall be performed by all members.
+</p>
+
+<p>
+  <dl>
+    <dt>Scavenge:</dt>
+      <dd>
+        Main action. A route is selected (perimeter is based on the minor speed of the members assigned to this action). After success, offer sight over the path taken.
+        <ul>
+          <li>Recon: Allows greater distance, but less chance of obtaining items and info.</li>
+          <li>Salvage: Opposite to recon, entails bigger risks</li>
+        </ul>
+      </dd>
+    <dt>Move:</dt>
+      <dd>Orders the whole group to some location, either, open to the wilds, or a building. Bring along all equipments, but involve risks.</dd>
+    <dt>Ambush:</dt>
+      <dd>Take some cloaked position nearby, the objective is either to switch information, items, or predate on humans or animals, based on char nature. Depending on the weapon may be of great advantage.</dd>
+    <dt>Rest</dt>
+      <dd>At the actual shelter. Cannot be performed on open ground.</dd>
+      <dd>
+        <ul>
+          <li>One eye open, Greater bonus on territorial defense, while providing less rest. More chance of discoverinfo info, based on items and conversation.</li>
+          <li>At ease, The char sleeps for full rest. More vulnerable. More chance of discovering info based on own memory.</li>
+        </ul>
+      </dd>
+  </dl>
+</p>
+ 
               </section>
               
               <section>
               <h2 id="items">Items</h2>
-              <div>
-                
-              </div>
+<p>
+  Divided in 3 categories, Equip, Consumable and Misc.
+</p>
+<p>
+  In terms of <strong>Equip</strong>, each char may carry only 1 vest and 1 weapon in missions, both equipped. Some equip, may demand some minimum requirements. [bullets should be infinite]
+<pre>
+Some Equips;
+  revolver .38: 
+    {lv: 2,  Power: C, Recharge: C, Range: B}
+  Sniper: 
+    {lv: 4  Power: A, Recharge: D, Range: S}
+  12: 
+    {lv: 3,  Power: A, Recharge: C, Range: C}
+  Baseball Bat: 
+    {lv: 1,  Power: (depends on STR), Recharge: S, Range: E}
+  Suit: 
+    {speech: +2, speed: -1}
+  Workout Clothes: 
+    { speed: +2, speech: -1, (-fatigue)}
+  Baseball Cap: 
+    { perception: +1}
+  Lab coat: 
+    {intelligence: +1}
+  Pajamas: 
+    {--fatigue}
+  Leather Jacket: 
+    {damage reduction}
+</pre>
+</p> 
+<p>
+  <strong>Consumable</strong> items may alter attributes (for limited time) or status. May only be used outside of missions.
+<pre>
+Some Consumables;
+  Apple: 
+    {hunger-}
+  Bacon:
+    {5 charges of hunger-}
+  Bandage:
+    {vit+}
+</pre>
+</p>
+<p>
+  <strong>Misc</strong> can be stuff that offer clues (may require time and Intelligence to be deciphered), or stuff used at the shelter.
+<pre>
+Some Misc;
+  Magazines and books, offer wisdom into game subjects.
+    i.e. “TATICS While ambushing may be wise to be done always with some ranged weapon”
+  Newspapers and papers, offer info into the current situation
+    i.e. “This terrain is expected to be bombed. Proceed [rigth direction string]North”
+  Notes, good hints about direction
+    “Salvation is at X degrees”
+  Movement sensor: 
+    Placed at house surrounding, wake up people at any presence nearby.
+  Bomb Trap: 
+    explode anything that steps on it.
+</pre>
+</p>
+
               </section>
               
               
