@@ -398,7 +398,7 @@ body.oneCol .col3 {
 
 .news h4 {
 	background: url(images/newsbar.gif) repeat-x;
-	font-weight: normal;
+	font-weight: bold;
 	line-height: 24px;
 	height: 24px;
 	margin: 10px 0 3px 0;
@@ -407,6 +407,7 @@ body.oneCol .col3 {
 
 #container .news h4 a {
 	border: none;
+	
 }
 
 .news h4 span{ /* , h4 time */
@@ -425,10 +426,12 @@ p.tags{
   */
   background: #222;
   padding-bottom: 1px;
+  padding-left: 3px;
 }
 
 p.description{
   /*padding-bottom: 14px;*/
+  margin: 1px 6px 5px;
   font-style: italic;
 }
 
@@ -567,7 +570,8 @@ p.description{
   text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
   border-bottom: 1px solid rgba(0,0,0,0.25);
   position: relative;
-  cursor: pointer;
+  cursor: default;
+/*  pointer;*/
   
   margin: 0 4px 4px 0;
 }
@@ -580,14 +584,18 @@ p.description{
 .large.awesome, .large.awesome:visited      { font-size: 14px; padding: 8px 14px 9px; }
 
 .green.awesome, .green.awesome:visited    { background-color: #91bd09; }
-.green.awesome:hover            { background-color: #749a02; }
-.blue.awesome, .blue.awesome:visited    { background-color: #2daebf; }
-.blue.awesome:hover             { background-color: #007d9a; }
+.dgreen.awesome, .dgreen.awesome:visited  { background-color: #648A18; }
+/*.green.awesome:hover            { background-color: #749a02; }*/
+.blue.awesome, .blue.awesome:visited    { background-color: #2DB5C4; }
+.dblue.awesome, .dblue.awesome:visited    { background-color: #207e5f; }
+/*.blue.awesome:hover             { background-color: #007d9a; }*/
+.lred.awesome, .lred.awesome:visited      { background-color: #F32202; }
 .red.awesome, .red.awesome:visited      { background-color: #e33100; }
-.red.awesome:hover              { background-color: #872300; }
-.magenta.awesome, .magenta.awesome:visited    { background-color: #a9014b; }
-.magenta.awesome:hover              { background-color: #630030; }
+/*.red.awesome:hover              { background-color: #872300; }*/
+.magenta.awesome, .magenta.awesome:visited    { background-color: #a9213b; }
+/*.magenta.awesome:hover              { background-color: #630030; }*/
 .orange.awesome, .orange.awesome:visited    { background-color: #ff6c00; }
-.orange.awesome:hover             { background-color: #d45500; }
+.dorange.awesome, .dorange.awesome:visited  { background-color: #cc4510; }
+/*.orange.awesome:hover             { background-color: #d45500; }*/
 .yellow.awesome, .yellow.awesome:visited    { background-color: #ffb515; }
-.yellow.awesome:hover             { background-color: #fc9200; }
+/*.yellow.awesome:hover             { background-color: #fc9200; }*/
