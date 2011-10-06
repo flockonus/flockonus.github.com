@@ -2367,3 +2367,21 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
 }
+
+.my_pics_right{
+  float:right;
+  opacity: 0.3;
+  padding: 14px;
+}
+
+.my_pics_left{
+  float:left;
+  opacity: 0.3;
+  padding: 14px;
+}
+section{
+  padding-top: 30px
+}
+
+
+
