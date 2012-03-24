@@ -6,11 +6,11 @@
   
   <script type="text/javascript" src="javascripts/jquery-1.7.1.js"></script>
   
-  
-  <link rel="stylesheet" type="text/css" href="./Flockonus Portfolio 2.0 - jsFiddle demo by flockonus_files/result-light.css">
+  <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
   
   <style type="text/css">
-    *{margin: 0; padding: 0; font-size: 110%;font-family: "Helvetica", "Lucida Sans", "Lucida Sans Unicode"}
+
+*{ margin: 0; padding: 0;}
 
 html, body{
     /* FONTS? Karla 
@@ -21,23 +21,35 @@ html, body{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    /* DEPLOY */
     overflow: hidden;
+    /*font-size: 110%;*/
+    font-family: 'Pontano Sans', sans-serif, "Helvetica", "Lucida Sans", "Lucida Sans Unicode";
 }
+
+p{
+    margin: 2% 0;
+}
+
 /*body > header{ heigth: 15% }*/
 #panel{
     height: 10%;
 }
 #panel *{ position: absolute; background: #FAA; text-align: center;  }
 #panel h1{
+    top: 1%;
     width: 50%;
     left: 25%;
     z-index: 500;
+    font-size: 200%;
 }
 #panel .back,#panel .next{
+    top: 1%;
     width: 5%;
     cursor: pointer;
     z-index: 500;
+    border-radius: 10%;
+    font-size: 200%;
+    font-weight: bold;
 }
 #panel .back{ left: 18% }
 #panel .next{ left: 77% }
@@ -52,12 +64,21 @@ html, body{
     bottom: 10%;
     font-size: 90%;
     opacity: 1;
+    border-radius: 10px;
+    padding: 2%;
+    line-height: 150%;
+    font-size: 150%;
+    text-shadow: 2px 1px 5px #3C5A65;
+    
     -webkit-transition: all 0.5s ease-in-out;
     -webkit-transition: all 0.5s ease-in-out;
     -webkit-transform: perspective(0) rotateY(0deg) translateZ(0px);
     -webkit-backface-visibility: visible;
     -webkit-transform-origin-x: 50%;
     -webkit-transform-origin-y: 50%;
+}
+.screen-glass h1{
+    display: none;
 }
 
 /* looking good! */
@@ -220,7 +241,12 @@ function orderGlasses () {
   var glasses = j('.screen-glass');
   glasses.filter(':eq(0)').addClass('middle')
   glasses.filter(':eq(1)').addClass('right')
-  glasses.filter(':gt(1)').addClass('hidden')
+  glasses.filter(':gt(1)').addClass('hidden').addClass('right')
+  setTitle();
+}
+
+function setTitle () {
+  j('#panel h1').text( j('.screen-glass.middle h1').text() );
 }
 
 function init() {
@@ -229,22 +255,24 @@ function init() {
     positionElements(dim);
     correctCSS(dim);
     j('#panel .next').click(function() {
-        var glass = j('.screen-glass.middle')
+        var glass = j('.screen-glass.middle');
         if( glass.next().size() ){
-            glass.removeClass('middle').addClass('left')
-            glass.prev().addClass('hidden')//.removeClass('left')
-            glass.next().addClass('middle').removeClass('right')
-            glass.next().next().addClass('right').removeClass('hidden')
+            glass.removeClass('middle').addClass('left');
+            glass.prev().addClass('hidden');//.removeClass('left')
+            glass.next().addClass('middle').removeClass('right');
+            glass.next().next().addClass('right').removeClass('hidden');
         }
+        setTitle();
     });
     j('#panel .back').click(function() {
-        var glass = j('.screen-glass.middle')
+        var glass = j('.screen-glass.middle');
         if( glass.prev().size() ){
-            glass.removeClass('middle').addClass('right')
-            glass.prev().addClass('middle').removeClass('left')
-            glass.prev().prev().addClass('left').removeClass('hidden')
-            glass.next().addClass('hidden')//.removeClass('right')
+            glass.removeClass('middle').addClass('right');
+            glass.prev().addClass('middle').removeClass('left');
+            glass.prev().prev().addClass('left').removeClass('hidden');
+            glass.next().addClass('hidden');//.removeClass('right')
         }
+        setTitle();
     });
     rotateSpots(0, 1500);
     //KEYFRAMES, sera que vai funcionar?
@@ -282,9 +310,11 @@ init();
             <h1>Fabiano PS Portfolio</h1>
         </header>
         <p>
-            Hi.<br /><br />
-            Ima webdev --dahora
-            - "da hora a vida"
+            <p>I am a <b>web developer</b>, especialized in back-end and passionate for front-end.</p>
+            <p>Versed in Node.js, Ruby, MongoDB, RESTful, jQuery, CSS, HTML5, SEO, UX</p>
+            <p>Aspire working with <b>HTML5 Games</b> and <b>social web</b>.</p>
+            <p>This website shows some of my most <b>recent Portfolio</b>.</p>
+            <p>Consult <b><a href="https://docs.google.com/document/d/1gi8UQ31akugdgfq4vlD_8MexFdQBv8bU5ojwE6npF-Q/edit">my curriculum</a></b> for formal education and past jobs.</p>
         </p>
     </article>
     <article id="page2" class="screen-glass">
