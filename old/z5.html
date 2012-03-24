@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Z5 - Zombie Survival GDD</title>
+    <meta name="description" content="Z5 is a zombie survival game, multi-player based, where player must control a team. Time is running out.">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      /* Override some defaults */
+      html, body {
+        background-color: #eee;
+      }
+      body {
+        padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
+        background-image: url("./images/z5/awjqiay.png");
+        zoom: 1.1;
+      }
+      .content{
+        background-image: url("./images/z5/xuwxfj2.png");
+      }
+      .container > footer p {
+        text-align: center; /* center align it with the container */
+        background-color: transparent;
+        color: #F5F5F5;
+      }
+      .container {
+        width: 820px; /* downsize our container to make the content feel a bit tighter and more cohesive. NOTE: this removes two full columns from the grid, meaning you only go to 14 columns and not 16. */
+      }
+
+      /* The white background content wrapper */
+      .content {
+        background-color: #fff;
+        padding: 20px;
+        margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+        -webkit-border-radius: 0 0 6px 6px;
+           -moz-border-radius: 0 0 6px 6px;
+                border-radius: 0 0 6px 6px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+                box-shadow: 0 1px 2px rgba(0,0,0,.15);
+      }
+
+      /* Page header tweaks */
+      .page-header {
+        /*background-color: #f5f5f5;*/
+        padding: 20px 20px 10px;
+        margin: -20px -20px 20px;
+      }
+
+      /* Styles you shouldn't keep as they are for displaying this base example only */
+      .content .span10,
+      .content .span4 {
+        min-height: 500px;
+      }
+      /* Give a quick and non-cross-browser friendly divider */
+      .content .span4 {
+        margin-left: 0;
+        padding-left: 19px;
+        border-left: 1px solid #eee;
+      }
+
+      .topbar .btn {
+        border: 0;
+      }
+
+    </style>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body id="body">
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="#">Z5</a>
+          <ul class="nav">
+            <li class=""><a href="#body">Title</a></li>
+            <li><a href="#intro">Intro</a></li>
+            <li><a href="#setup">Setup</a></li>
+            <li><a href="#map">Map</a></li>
+            <li><a href="#attributes">Attributes</a></li>
+            <li><a href="#status">Status</a></li>
+            <li><a href="#actions">Actions</a></li>
+            <li><a href="#items">Items</a></li>
+            <li><a href="#mechanics">Mechanics</a></li>
+            <li><a href="#references">References</a></li>
+          </ul>
+          <!-- <form action="" class="pull-right">
+                      <input class="input-small" type="text" placeholder="Username">
+                      <input class="input-small" type="password" placeholder="Password">
+                      <button class="btn" type="submit">Sign in</button>
+                    </form> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <article>
+        <header>
+          <div class="page-header">
+            <h1>Z5 <small>Zombie Survival GDD</small></h1>
+          </div>
+        </header>
+        <div class="row">
+          <div class="span14">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+              
+              <section id="intro">
+              
+              <h2>Intro</h2>
+              
+              <img src="images/z5/z1.jpg" class="my_pics_right" />
+              
+              <p>
+                <blockquote>
+                  <p><strong>Zombie Apocalypse breaks, world ends in 6 days</strong></p>
+                  <p><strong>Player control a group of 5 random characters</strong></p>
+                  <p><strong>There is a surviving chance. Somewhere</strong></p>
+                </blockquote>
+              </p>
+              
+              <p>
+                Each char have 5 <strong>attributes</strong>:
+                <ul>
+                  <li>Strength</li>
+                  <li>Speed</li>
+                  <li>Perception</li>
+                  <li>Speech</li>
+                  <li>Intelligence</li>
+                </ul>
+                  
+              </p>
+              
+              <p>
+                And 3 <strong>status</strong>
+                <ul>
+                  <li>Hunger</li>
+                  <li>Vitality</li>
+                  <li>Fatigue</li>
+                </ul>
+              </p>
+              
+              <p>
+                One of 3  <strong>natures</strong>, based on its attributes
+                <ul>
+                  <li>Aggressive</li>
+                  <li>Adaptive</li>
+                  <li>Peaceful</li>
+                </ul>
+              </p>
+              
+              <p>
+                The whole game is based on 4 <strong>actions</strong>
+                <ul>
+                  <li>Scavenge</li>
+                  <li>Ambush</li>
+                  <li>Rest</li>
+                  <li>Move</li>
+                </ul>
+              </p>
+              
+              <p>
+                <small>TAGS: (Story Telling, Puzle, Strategy) (Survivors. Guns. Apocalypse) (Browser. Turns.)</small>
+              </p>
+              
+              </section>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <section id="setup">
+              <h2 id="setup">Setup</h2>
+              <img src="images/z5/swampZ.jpg" class="my_pics_left" />
+<p>
+  The game starts on a monday.
+</p>
+
+<p>
+  During player’s first access, he gets assigned a random group of 5 chars. He may choose to roll 2 more times, 
+</p>
+
+<p>
+  Each roll applies for a complete randomization all characters, including name, avatar, attributes and starting items.
+</p>
+
+<p>
+<pre>
+Male-Base Characters:
+  str: 2
+  spd: 2
+  prc: 1
+  spc: 1
+  int: 1
+</pre>
+</p>
+
+<p>
+  
+<pre>
+Female-Base Characters:
+  str: 1
+  spd: 1
+  prc: 2
+  spc: 2
+  int: 1
+</pre>
+</p>
+<p>
+For each Char:
+<ul>
+  <li>For each attribute, a dice is rolled, adding 1-3 points</li>
+  <li>Each char gets a weapon, lv 1 - 4</li>
+  <li>Food: 70% chance, lv 1-3</li>
+  <li>Remedy: 30% chance, lv 1-3</li>
+  <li>Utility: <i>--next version</i> </li>
+</ul>
+</p>
+              </section>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <section id="map">
+              <h2>Map</h2>
+              <img src="images/z5/map.png" class="my_pics_right" />
+<p>
+  The map is initially unknown, and gets incrementally discoved through exploration.
+</p>
+<p>
+  The group starts the game at some random map position
+</p>
+<p>
+  Whichever point is, there is a real chance of the group reaching the rescue point 
+</p>
+<p>
+  The distance from the closest to the farthest player start point to the rescue point varies approximately 20%
+</p>
+<p>
+  The map is generated randomly. There should be no impassable barriers in the first version
+</p>
+<p>
+  Players should be positioned next to each other.. 1~2 days distance to the closest.
+</p>
+
+<p>
+  Buildings are placed at random distances, each have their own kinds of items
+  <ul>
+    <li>houses</li>
+    <li>meds, guns, cloth stores</li>
+    <li>offices</li>
+    <li>transports</li>
+    <li>research institutes</li>
+    <li>schools</li>
+  </ul>
+</p>
+              </section>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <section id="attributes">
+              <h2>Attributes</h2>
+              <img src="images/z5/str.jpg" class="my_pics_left" />
+<p>
+  Assigned during setup, they are permanent.
+</p>
+<p>
+  They may be temporarily altered by status and items
+</p>
+<p>
+  <dl>
+    <dt>Strength:</dt>
+      <dd>Influence melee weapons effectiveness</dd>
+    <dt> Speed: </dt>
+      <dd>Determine the range of scavenging as well as chance to scape dangerous situations</dd>
+    <dt>Perception:</dt>
+      <dd>Capacity of detecting zombies, traps and ambushes. Range of sight. Item spotting ability</dd>
+    <dt>Speech:</dt>
+      <dd>Capacity of convincing others to trade as well as acquiring info, the diplomatic way</dd>
+    <dt>Intelligence:</dt>
+      <dd>Ability of finding clues. As well of capabilities of deciphering then.</dd>
+  </dl>
+</p>
+
+              </section>
+              
+              
+              
+              
+              
+              
+              
+              <section id="status">
+              <h2>Status</h2>
+              
+              <img src="images/z5/cross.jpg" class="my_pics_right" />
+<p>
+  Affects attributes, highly unstable.
+</p>
+<p>
+  <strong>Hunger:</strong>
+   Influences all stats alike. Vary both color and tags; famished(red), starving, hungry, satisfied(light yellow), full(green)
+</p>
+<p>
+  <strong>Vitality:</strong>
+   May incapacitate the char of taking actions, several: Healthy, wounded leg or arm( -2 str / spd), very hurt (disabled), recovering( -1 to str, spd, prc ), dead(you know)
+</p>
+<p>
+  <strong>Fatigue:</strong>
+   Have random impact over attributes, based on level. Include: Rocking, bit tired, tired, exhausted.
+</p>
+              </section>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <section id="actions">
+              <h2>Actions</h2>
+              <img src="images/z5/heaven2.jpg" class="my_pics_left" />
+<p>
+  Are decided at the begin of the turn, one per char, per turn, no limits.
+</p>
+<p>
+  May be assigned to individuals or groups, except Move, that shall be performed by all members.
+</p>
+
+<p>
+  <dl>
+    <dt>Scavenge:</dt>
+      <dd>
+        Main action. A route is selected (perimeter is based on the minor speed of the members assigned to this action). After success, offer sight over the path taken.
+        <ul>
+          <li>Recon: Allows greater distance, but less chance of obtaining items and info.</li>
+          <li>Salvage: Opposite to recon, entails bigger risks</li>
+        </ul>
+      </dd>
+    <dt>Move:</dt>
+      <dd>Orders the whole group to some location, either, open to the wilds, or a building. Bring along all equipments, but involve risks.</dd>
+    <dt>Ambush:</dt>
+      <dd>Take some cloaked position nearby, the objective is either to switch information, items, or predate on humans or animals, based on char nature. Depending on the weapon may be of great advantage.</dd>
+    <dt>Rest</dt>
+      <dd>At the actual shelter. Cannot be performed on open ground.</dd>
+      <dd>
+        <ul>
+          <li>One eye open, Greater bonus on territorial defense, while providing less rest. More chance of discoverinfo info, based on items and conversation.</li>
+          <li>At ease, The char sleeps for full rest. More vulnerable. More chance of discovering info based on own memory.</li>
+        </ul>
+      </dd>
+  </dl>
+</p>
+ 
+              </section>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <section  id="items">
+              <h2>Items</h2>
+              <img src="images/z5/gunz.jpg" class="my_pics_right" />
+<p>
+  Divided in 3 categories, Equip, Consumable and Misc.
+</p>
+<p>
+  In terms of <strong>Equip</strong>, each char may carry only 1 vest and 1 weapon in missions, both equipped. Some equip, may demand some minimum requirements. [bullets should be infinite]
+<pre>
+Some Equips;
+  revolver .38: 
+    {lv: 2,  Power: C, Recharge: C, Range: B}
+  Sniper: 
+    {lv: 4  Power: A, Recharge: D, Range: S}
+  12: 
+    {lv: 3,  Power: A, Recharge: C, Range: C}
+  Baseball Bat: 
+    {lv: 1,  Power: (depends on STR), Recharge: S, Range: E}
+  Suit: 
+    {speech: +2, speed: -1}
+  Workout Clothes: 
+    { speed: +2, speech: -1, (-fatigue)}
+  Baseball Cap: 
+    { perception: +1}
+  Lab coat: 
+    {intelligence: +1}
+  Pajamas: 
+    {--fatigue}
+  Leather Jacket: 
+    {damage reduction}
+</pre>
+</p> 
+<p>
+  <strong>Consumable</strong> items may alter attributes (for limited time) or status. May only be used outside of missions.
+<pre>
+Some Consumables;
+  Apple: 
+    {hunger-}
+  Bacon:
+    {5 charges of hunger-}
+  Bandage:
+    {vit+}
+</pre>
+</p>
+<p>
+  <strong>Misc</strong> can be stuff that offer clues (may require time and Intelligence to be deciphered), or stuff used at the shelter.
+<pre>
+Some Misc;
+  Magazines and books, offer wisdom into game subjects.
+    i.e. “TATICS While ambushing may be wise to be done always with some ranged weapon”
+  Newspapers and papers, offer info into the current situation
+    i.e. “This terrain is expected to be bombed. Proceed [rigth direction string]North”
+  Notes, good hints about direction
+    “Salvation is at X degrees”
+  Movement sensor: 
+    Placed at house surrounding, wake up people at any presence nearby.
+  Bomb Trap: 
+    explode anything that steps on it.
+</pre>
+</p>
+
+              </section>
+              
+              
+              
+              
+              
+              
+              <section id="mechanics">
+              <h2>Mechanics</h2>
+              <p>
+                <em>#WORN-IN-PROGRESS</em>
+              </p>
+              </section>
+              
+              
+              
+              
+              
+              <section id="references">
+              <h2>References</h2>
+              <p>
+                This game design embeeds artworks from great artists found on Deviant, all references in order:
+                <ul>
+                  <li><a rel="nofollow" target="_blank" href="http://aquanitrox.deviantart.com/art/Zombies-154565771?q=boost%3Apopular%20zombies&qo=21">aquanitox</a></li>
+                  <li><a rel="nofollow" target="_blank" href="http://vinegar.deviantart.com/art/Zombie-swamp-148289048?q=boost%3Apopular%20in%3Adigitalart%2Fpaintings%2Fmacabre%20zombie&qo=29" >vinegar</a></li>
+                  <li><a rel="nofollow" target="_blank" href="http://whittakerco.deviantart.com/art/Camden-Map-257509162?q=boost%3Apopular%20max_age%3A744h%20city%20map&qo=22" >whittakerco</a></li>
+                  <li><a rel="nofollow" target="_blank" href="http://siowified4christ.deviantart.com/art/Strength-to-endure-Drawing-78801103?q=boost%3Apopular%20strength&qo=74" >siowified4christ</a></li>
+                  <li><a rel="nofollow" target="_blank" href="http://pookiefx.deviantart.com/art/Health-Cross-24153109?q=boost%3Apopular%20health%20cross&qo=8" >pookiefx</a></li>
+                  <li><a rel="nofollow" target="_blank" href="http://werol.deviantart.com/art/Heaven-14583896?q=boost%3Apopular%20heaven&qo=8" >werol</a></li>
+                  <li><a rel="nofollow" target="_blank" href="http://shiobock.deviantart.com/art/Sawn-off-Shotgun-92201807?q=boost%3Apopular%20shotgun&qo=55" >shiobock</a></li>
+                </ul>
+              </p>
+              <p>
+                Much of my inspiration comes from: Fallout 3, Dead Rising, Atom Zombie Smasher and many other zombie movies and games I love.
+              </p>
+              </section>
+              
+              
+          </div>
+          <!-- <div class="span4">
+                      <h3>Secondary content</h3>
+                    </div> -->
+        </div>
+      </article>
+      </div>
+      
+      <footer>
+        <p>GDD by <a rel="me" href="https://plus.google.com/115482505123591323296/about">Fabiano PS</a></p>
+      </footer>
+      
+    </div> <!-- /container -->
+
+  </body>
+</html>

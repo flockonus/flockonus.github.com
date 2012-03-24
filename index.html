@@ -1,505 +1,335 @@
 <!DOCTYPE html>
-<!-- !DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" -->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- saved from url=(0049)http://fiddle.jshell.net/flockonus/seB73/30/show/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Flockonus Portfolio 2.0 - jsFiddle demo by flockonus</title>
+  
+  <script type="text/javascript" src="javascripts/jquery-1.7.1.js"></script>
+  
+  
+  <link rel="stylesheet" type="text/css" href="./Flockonus Portfolio 2.0 - jsFiddle demo by flockonus_files/result-light.css">
+  
+  <style type="text/css">
+    *{margin: 0; padding: 0; font-size: 110%;font-family: "Helvetica", "Lucida Sans", "Lucida Sans Unicode"}
+
+html, body{
+    /* FONTS? Karla 
+     * 
+     * background: #BDB;*/
+    height: 100%;
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* DEPLOY */
+    overflow: hidden;
+}
+/*body > header{ heigth: 15% }*/
+#panel{
+    height: 10%;
+}
+#panel *{ position: absolute; background: #FAA; text-align: center;  }
+#panel h1{
+    width: 50%;
+    left: 25%;
+    z-index: 500;
+}
+#panel .back,#panel .next{
+    width: 5%;
+    cursor: pointer;
+    z-index: 500;
+}
+#panel .back{ left: 18% }
+#panel .next{ left: 77% }
+
+.screen-glass{
+    z-index: 50;
+    background: rgba(180,180,235,0.5);
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    right: 20%;
+    bottom: 10%;
+    font-size: 90%;
+    opacity: 1;
+    -webkit-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -webkit-transform: perspective(0) rotateY(0deg) translateZ(0px);
+    -webkit-backface-visibility: visible;
+    -webkit-transform-origin-x: 50%;
+    -webkit-transform-origin-y: 50%;
+}
+
+/* looking good! */
+.screen-glass.right{
+    -webkit-transform: perspective(1500px) rotateY(-82deg) translate3d(61px,0px,-630px);
+    z-index: 10;
+    /*left: 81% !important;
+    right: 0% !important;*/
+}
+
+.screen-glass.left/* looks bad! */{
+    -webkit-transform: perspective(1500px) rotateY(82deg) translate3d(-61px,0em,-630px);
+    z-index: 10;
+/*    width: 50%;*/
+    /*left:  20% !important;
+    right: 20% !important;*/
+}
+
+.hidden{
+    /*display: none;*/
+   opacity: 0;
+   z-index: 2 !important;
+}
+
+.spot{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index:1;
+    -webkit-transition: 1.5s linear;/*ease; */
+    -moz-transition:    1.5s linear;
+background: -webkit-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.3) 1%,rgba(255, 255, 255, 0) 70%,rgba(255, 255, 255, 0) 100%); /* Chrome10+,Safari5.1+ */
+background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,1)), color-stop(40%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+background: -o-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 100%); /* IE10+ */
+background: radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+body{
+background: rgb(13,112,2); /* Old browsers */
+background: -moz-linear-gradient(-45deg, rgba(13,112,2,1) 0%, rgba(0,214,0,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(13,112,2,1)), color-stop(100%,rgba(0,214,0,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg, rgba(13,112,2,1) 0%,rgba(0,214,0,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg, rgba(13,112,2,1) 0%,rgba(0,214,0,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg, rgba(13,112,2,1) 0%,rgba(0,214,0,1) 100%); /* IE10+ */
+background: linear-gradient(-45deg, rgba(13,112,2,1) 0%,rgba(0,214,0,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d7002', endColorstr='#00d600',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+@-webkit-keyframe sintH1 {
+    from {
+        -webkit-transform: skew(0deg,0deg);
+        -moz-transform: skew(0deg,0deg);
+    }
+    50%{
+        -webkit-transform: skew(90deg,0deg);
+        -moz-transform: skew(90deg,0deg);
+    }
+    100%{
+        -webkit-transform: skew(180deg,0deg);
+        -moz-transform: skew(180deg,0deg);
+    }
+}
+
+.h1distort{
+    -webkit-animation-name: sintH1;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-iteration-count: 2;
+}
+
+  </style>
+  
 
 
-<head>
+<script type="text/javascript">//<![CDATA[ 
+$(window).load(function(){
+var j = jQuery;
 
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>@FlockonUS - Fabiano PS - Developer</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <!--link href="./files/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css" /-->
-  <meta http-equiv="Content-Language" content="en"/>
-  
-  <meta name="description" content="@Flockonus: Fabiano Pereira Soriani internet nickname. This is my personal wesite." />
-  
-  
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-  <script type="text/javascript" src="./files/jquery.transform.js"></script><!-- https://github.com/lrbabe/jquery.transform.js -->
-  <script type="text/javascript" src="./files/jquery.cycle.lite.min.js"></script>
-  
-  
-  <!--[if IE]><style>.capR { margin-left: -14px; }</style><![endif]-->
+function getDimension() {
+    var jdoc = j(document)
+        //w = jdoc.width(),
+        //h = jdoc.height();
+    //console.log('dimension', w, h);
+    return {
+        w: jdoc.width(),
+        h: jdoc.height(),
+    }
+}
+
+// dont use for panel anymore!
+
+
+function positionElements(dim) {
+    //var jdoc = j(document),
+    //    w = jdoc.width(),
+    //    h = jdoc.height(),
+    var padding1 = 5,
+        arrowBtW = 20;
+    // ensure header size!
+    j('body > header').css('height', dim.h * 0.18);
+    //j('.screen-glass:last').hide()
+}
+
+// all percentages, so never goes wrong
+var spotPos = [[-28, -25], [0, -35], [28, -25], [35, 5], [28, 30], [0, 45], [-28, 30], [-35, 5]];
+function rotateSpots(step, duration) {
+    var pos = spotPos[ step % spotPos.length ];
+    //console.log('spot..', pos, step, duration);
+    j('.spot:first')
+        .css('left', pos[0]+'%')
+        .css('top', pos[1]+'%');
+    pos = spotPos[ (step+4) % spotPos.length ];
+    j('.spot:last')
+        .css('left', pos[0]+'%')
+        .css('top', pos[1]+'%');
+    setTimeout(rotateSpots, duration, step + 1, duration);
+}
+
+function correctCSS (dim) {
+    //var css = document.styleSheets[1]//$('style')[0].sheet.rules;
+      //, perspective = Math.floor(90/0.060)+'px'
+    var glasses = {
+          base_val: [0.8581235697940504, 0.03489702517162471, 0.36041189931350115],//[0.8581235697940504, 0.03489702517162471, 0.36041189931350115],
+          right: {
+              template: "perspective(?px) rotateY(-82deg) translate3d(?px,0px,-?px) !important;",
+          },
+          left: {
+              template: "perspective(?px) rotateY(82deg) translate3d(-?px,0em,-?px) !important;",
+          }
+      }
+    //if( dim.w < 1300 ) glasses.base_val[0] = glasses.base_val[0]*( 0.8 )
+    var diffW = dim.w - 1750
+    glasses.base_val[0] = glasses.base_val[0]*( 1+(diffW*0.0006) )
+    //console.log( diffW, 1+(diffW*0.0005), glasses.base_val )
+    
+    for (var i=0; i < glasses.base_val.length; i++) {
+      glasses.right.template = glasses.right.template.replace( /\?/, glasses.base_val[i]*dim.w )
+      glasses.left.template = glasses.left.template.replace( /\?/, glasses.base_val[i]*dim.w )
+    };
+    
+    // TODO set font-size!
+    
+    // TODO, marcar esse elemento, e nao ficar adicionando sheet toda hora!
+    var style = document.createElement('style');
+    style.innerHTML = ".screen-glass.right { -webkit-transform: "+glasses.right.template+" } "+".screen-glass.left  { -webkit-transform: "+glasses.left.template+" }";
+    j('head').append( style );
+    
+    
+    
+    // nao ta escrevendo no Chrome! pq?
+    //css.insertRule( ".screen-glass.right { -webkit-transform: "+glasses.right.template+" }", 0 )
+    //css.insertRule( ".screen-glass.left  { -webkit-transform: "+glasses.left.template+" }", 1 )
+    
+    console.log('dim', dim.w, dim.h);
+}
+
+function orderGlasses () {
+  var glasses = j('.screen-glass');
+  glasses.filter(':eq(0)').addClass('middle')
+  glasses.filter(':eq(1)').addClass('right')
+  glasses.filter(':gt(1)').addClass('hidden')
+}
+
+function init() {
+    //setTimeout( function(){j("#welcome").fadeOut();}, 1000);
+    var dim = getDimension();
+    positionElements(dim);
+    correctCSS(dim);
+    j('#panel .next').click(function() {
+        var glass = j('.screen-glass.middle')
+        if( glass.next().size() ){
+            glass.removeClass('middle').addClass('left')
+            glass.prev().addClass('hidden')//.removeClass('left')
+            glass.next().addClass('middle').removeClass('right')
+            glass.next().next().addClass('right').removeClass('hidden')
+        }
+    });
+    j('#panel .back').click(function() {
+        var glass = j('.screen-glass.middle')
+        if( glass.prev().size() ){
+            glass.removeClass('middle').addClass('right')
+            glass.prev().addClass('middle').removeClass('left')
+            glass.prev().prev().addClass('left').removeClass('hidden')
+            glass.next().addClass('hidden')//.removeClass('right')
+        }
+    });
+    rotateSpots(0, 1500);
+    //KEYFRAMES, sera que vai funcionar?
+    // fallback eh usar um jquery e outro com  setTimeout, contanto com a anicao basica
+    // especificacao (bom!) http://www.w3.org/TR/css3-animations/#keyframes-
+    // pratica neve (webkit) natbat.net/code/clientside/css/snowflakes/
+    // sprites (util!) http://hacks.mozilla.org/2011/09/taking-steps-with-css-animations/
+    // 
+    
+    orderGlasses();
+    setTimeout( function(){
+        j('h1:first').addClass('h1distort');
+    }, 1000);
+}
+init();
+
+
+});//]]>  
+
+</script>
+
+
 </head>
+<body>
+  <header style="height: 156.06px; "> 
+    <nav id="panel">
+        <div class="back"> &lt; </div>
+        <h1 class="h1distort"> Page Title </h1>
+        <div class="next"> &gt; </div>
+    </nav>
+</header>
+<section>
+    <article id="page1" class="screen-glass">
+        <header>
+            <h1>Fabiano PS Portfolio</h1>
+        </header>
+        <p>
+            Hi.<br /><br />
+            Ima webdev --dahora
+            - "da hora a vida"
+        </p>
+    </article>
+    <article id="page2" class="screen-glass">
+        <header>
+            <h1>GameWiser</h1>
+            <div>JavaScript, Node.js, jQuery, MongoDB</div>
+        </header>
+        <p>
+            Independent peer based game review website. We proposed as focus to create a better system to search and review games from several platforms.
+        </p>
+    </article>
+    <article id="page3" class="screen-glass">
+        <header>
+            <h1>Flockin Games</h1>
+            <div>Node.js, ActionScript3, MySQL</div>
+        </header>
+        <p>
+            An extensive project, involving crafting a in-site game tracking 
+        </p>
+    </article>
+    <article id="page4" class="screen-glass">
+        <header>
+            <h1>This to be page 2!</h1>
+        </header>
+        <p>
+            The pear is cool
+        </p>
+    </article>
+    <article id="page5" class="screen-glass">
+        <header>
+            <h1>This to be page 2!</h1>
+        </header>
+        <p>
+            The pear is cool
+        </p>
+    </article>
+</section>
 
+<div class="spot" style="left: 28%; top: -25%; ">&nbsp;</div>
+<div class="spot" style="left: -28%; top: 30%; ">&nbsp;</div>
 
-
-
-<body lang="en">
-
-  <!--
-  fazer:
-    xfazer os links com scroll do jquery do menubar
-      ex: j("body").animate( {scrollTop: j('#colFull').offset().top}, 'slow' )
-    Redimensionar screens e colocar nos .projects
-    add events nos links que levam pra outras paginas fora
-    Incluir microformats!
-    Add easter egg
-    Buscar os últimos titulos dos meus posts e colocar embeed (YQL)
-  -->
-	  
-	  <menu>
-    <div id="menubar">
-      <ul>
-        <li class="not-use-current"><span class="capL">&nbsp;</span><a href="#home-tab">About</a><span class="capR">&nbsp;<!--[if IE]> <![endif]--></span></li>
-        <li><span class="capL">&nbsp;</span><a  href="#projects-tab">Projects</a><span class="capR">&nbsp;<!--[if IE]> <![endif]--></span></li>
-        <li><span class="capL">&nbsp;</span><a href="#reference-tab">Contact</a><span class="capR">&nbsp;<!--[if IE]> <![endif]--></span></li>
-      </ul>
-    </div>
-    </menu>
-    
-    <div id="bodyBackground">
-  		<div id="nebula">
-  		  <!-- <img src="images/top_of_canvas2.png" style="position: absolute;" /> -->
-  			<canvas style="display:none" id="canvas" width="285" height="285"></canvas>
-  			<canvas style="display:none; " id="canvas3" width="570" height="570"></canvas>
-  			<!-- <canvas id="canvas2" width="570" height="260">*** THIS BROWSER DOES NOT SUPPORT THE CANVAS ELEMENT ***</canvas> -->
-  			<canvas id="canvas2" width="570" height="260">*** THIS BROWSER DOES NOT SUPPORT THE CANVAS ELEMENT ***</canvas>
-  		</div>
-		
-      <div id="container">
-      
-        <div id="header">
-          <header>
-          <h1><a href="#">Fabiano PS</a></h1>
-          <h2>Web developer on the Internetz</h2>
-          </header>
-        </div><!-- end #header -->
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <section id="home-tab">
-          <div class="col1">
-            <article title="About me">
-            <h2>Welcome</h2>
-            
-            <p>
-              <b>Fabiano Pereira Soriani personal Hub!</b>
-            </p>
-            <img class="floatImgR" src="data:image/png;base64,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" alt="Photo of Fabiano Pereira Soriani's head screaming" title="Fabiano Pereira Soriani screaming" />
-        	  
-        	  <p>
-        	    This website is dedicated to personal <b>references</b> and things that I built.
-        	  </p>
-        	  <p>
-        	    Site, built with CSS3 and JavaScript, hosted at Github.
-        	  </p>
-            
-            <div class="pJustify">
-            
-              <h3>Skills</h3>
-              
-              <p>
-                My devopment efforts are aimed at <a href="http://nodejs.org"><b>Node.js</b></a>, <a href="http://www.rubyonrails.org"><b>Ruby on Rails</b></a>, <a href='https://developer.mozilla.org/en/javascript'><b>JavaScript</b></a>, <a href="http://studio.html5rocks.com/"><b>HTML5</b></a href="http://studio.html5rocks.com/">, but also other techs come along.
-              </p>
-            </div>
-            </article>
-          </div><!-- end #col1 -->
-          
-          <div class="col2 news pJustify">
-          
-            <h2>blogs</h2>
-            
-            <h4><a href="http://fabiano2business.wordpress.com">Developer Blog</a> <span>XX/XX/XX</span></h4>
-            
-            <p>Last Article Title Goes Here :P</p>
-            
-            <h4><a href="http://fabianosoriani.wordpress.com">Business Blog</a> <span>XX/XX/XX</span></h4>
-            
-            <p>Last Article Title Goes Here :P</p>
-      	  
-      	  <h3>Gallery</h3>
-            
-            <div class="galleryPrev pics personal">
-              <img src="http://images.orkut.com/orkut/photos/OgAAALabrJom8jY40eibx4xjik2LVHdE3Xzo1fOAOj0C-jDiIsv438VxsPyXKR2fw1NBy-lDGBAORVI1B83ZTrrLvWEAm1T1UC2CqbwfRlFWuX7ELkbTIWkK3Jqb.jpg" alt="Fabiano and Friends at celebration"  />
-              <img src="http://images.orkut.com/orkut/photos/OgAAAPClQliWhXYvduCHMc3cDs72yCWnTXgYqIjdyXHuN2e6yGWoScvwnPMizUH-e4j_HYzad6yc-7XsFMMmCugdHyIAm1T1UM1GQZ5PHHst81LCSAUzPS9bt8KT.jpg" alt="Fabiano at Great Barrington MA Ski"  />
-              <img src="http://images.orkut.com/orkut/photos/OgAAAChqpsfCxP_bX4LgNH8KHJWUOsXYvJC_hyrhlaGd1CZ8ci_dH8fOKviO-UZsyrTWFT3gVGZIwkWW3S0teovXlB8Am1T1UPZRPtwPAf7ngt2NTMIP_WhJCwWI.jpg" alt="Fabiano and Friends at club"  />
-              <img src="http://images.orkut.com/orkut/photos/OgAAAG1LbBVNLJiIUXFk9EVG1IRxT2J789sS6poifBPalcMVBxNDp1lZWM_O989qqqnWsp4YxsSe8E8qtvliKPKhnz4Am1T1UM-T6A5uuACD--xG3RARDYCpTYZs.jpg" alt="Fabiano eating Temaki"  />
-              <!--original a href="#"><img src="images/gallery/3.jpg" alt="3" class="floatImgL" /></a-->
-            </div>
-            
-          </div><!-- end #col2 -->
-          
-          <div class="col3 pJustify">
-          
-            <h2>Twitter</h2>
-            
-            <script src="http://widgets.twimg.com/j/2/widget.js"></script>
-      		  <script>
-          		var a = new TWTR.Widget({
-          		  version: 2,
-          		  type: 'profile',
-          		  rpp: 10,
-          		  //interval: 6000,
-          		  width: 'auto',
-          		  height: 340,
-          		  theme: {
-          			shell: {
-          			  background: 'transparent',
-          			  color: '#ffffff'
-          			},
-          			tweets: {
-          			  background: 'transparent',
-          			  color: '#ffffff',
-          			  links: '#00AEEF'
-          			}
-          		  },
-          		  features: {
-          			scrollbar: false,
-          			loop: false,
-          			live: true,
-          			hashtags: true,
-          			timestamp: true,
-          			avatars: false,
-          			behavior: 'all'
-          		  }
-          		}).render().setUser('flockonus').start();
-            </script>
-            
-          </div><!-- end #col3 -->
-        </section>
-        <div class="clearfloat colBorder"></div>
-        
-  	  
-  	  
-  	  <div></div>
-  	  
-  	  
-  	  
-  	  
-  	  
-  	  
-  	  <section id="projects-tab">
-    	  <div class="col1 pJustify">
-        
-        <h2>My Projects</h2>
-        
-          <p>Games, web, entertainment. Hopefully, some useful stuff =)</p>
-          
-          <p>A relevant brief of the latest, some are for personal satisfaction only, some aim profit. </p>
-          
-          <!-- <img width="50%" class="floatImgR" src="images/gallery/1UP.png" alt="Mario Mushroom 1UP" /></p> -->
-          
-          <!-- p>You will notice that this section does not have justified paragraphs. That is because floating images in a paragraph makes the justified paragraph look bad. This is controlled through the use of the "pJustify" class.</p -->
-          
-            <h3> Screens </h3>
-            
-            <div class="pics projects">
-              <img src="images/gallery/z52.jpg" alt="Z5 mini gdd" title="screenshot" />
-              <img src="images/gallery/fcchat2.jpg" alt="FaleCliente operator scr" title="screenshot" />
-              <img src="images/gallery/flockin2.jpg" alt="Banana Brains FIRE game" title="screenshot" />
-              <img src="images/gallery/gasa_glossario_siglas.jpg" alt="GASA - Glossário de Abreviaturas Siglas e Acrônimos" title="screenshot" />
-              <img src="images/gallery/javascript_inmotion_canvas.jpg" alt="Javascript Tween Engine for HTML5 Canvas" title="screenshot" />
-              <!-- <img src="images/gallery/layout_princetel.jpg" alt="Layout site Princetel" title="screenshot"  /> -->
-              <img src="images/gallery/logo_guenka.jpg" alt="Guenka Logo" title="logo"  />
-              <!--original a href="#"><img src="images/gallery/3.jpg" alt="3" class="floatImgL" /></a-->
-
-            </div>
-          
-        </div><!-- end #col1 -->
-        
-        <div class="col2 news pJustify">
-        
-          <h2>PROJECTS / Experience</h2>
-          
-          
-          <!--           <h4><a href="http://www.princetel.com.br/">Princetel Website</a> <span><time datetime="2011-03-01">March 2011</time></span></h4>
-                    <p class="tags">Tags: Ruby On Rails, HTML5 </p>
-                    <details open>
-                    <p class="description">A simple Freelance project, developed along the web designer <a href="http://blog.danielvichi.com/">Daniel Ishigaki</a href="http://blog.danielvichi.com/"> at our hometown, Londrina. </p> 
-                    </details>
-                     -->
-          
-          <h4><a href="http://flockonus.github.com/z5.html">Z5 - Game Design</a>  <span> <time datetime="2011-09-20">September 2010 </time> to <time datetime="now">Today</time> </span>   </h4>
-          <p class="tags">Tags: Games </p>
-          <p class="description">A turn-based zombie game! Click the title and see more :) </p>
-          
-          
-          <h4><a href="http://fcchat.herokuapp.com/">Fale Cliente - Chat</a>  <span> <time datetime="2011-09-01">August 2011 </time> to <time datetime="now">Today</time> </span>   </h4>
-          <p class="tags">Tags: Node.js, HTML5, Redis, jQuery</p>
-          <p class="description">Developing a website chat plugin. Exercising node.js and learning Redis</p>
-          
-          
-          <h4><a href="http://www.flockin.com.br/inst.html">Flockin Games</a>  <span> <time datetime="2011-09-01">August 2011 </time> to <time datetime="now">Today</time> </span>   </h4>
-          <p class="tags">Tags: Node.js, Flash AS3, Games </p>
-          <p class="description"> Returning to the company I helped establishing during college! Helping my friends with some game server stuff</p>
-          <!-- <details open>
-                    </details> -->
-          
-          
-          <!-- <details open>
-          </details> -->
-          
-          
-          <h4><a href="http://fire.bananabrains.net">F.I.R.E.</a> <span> <time datetime="2010-11-01">November 2010 </time> to <time datetime="2011-06-01">July 2011</time> </span>  </h4>
-          <p class="tags">Tags: Ruby On Rails, JavaScript, jQuery, Games, Social </p>
-          <p class="description">A Role Play Soccer MMO, we are developed up to alfa at <a href="http://twitter.com/#!/bbrains">Banana Brains</a>  </p>
-          <!-- <details open>
-          </details> -->
-          
-          <h4><a href="http://inmotion.jaeh.net">JavaScript InMotion</a>  <span> <time datetime="2010-08-01">August 2010 </time> </span>   </h4>
-          <p class="tags">Tags: JavaScript, HTML5 </p>
-          <p class="description">A JavaScript library and editor aiming to provide tween animations at HTML5 Canvas element. A hobby project.</p>
-          <!-- <details open>
-          </details> -->
-          
-          
-          <h4><a href="http://glossario-abreviatura-sigla-acronimo.jaeh.net/">GASA</a> <span> <time datetime="2010-10-01">October 2010 </time> </span>  </h4>
-          <p class="tags">Tags: Ruby On Rails, jQuery, Social </p>
-          <p class="description"> A very simple project aimed at teaching my friend <a href="http://twitter.com/#!/_seigo">Seigo</a > Ruby on Rails. Also, a Social and SEO experiment. </p>
-          <!-- <details open>
-          </details> -->
-          
-          
-          <h4><a href="http://www.guenka.com.br/solucoes/gestao-industrial.html">Job at Guenka Software</a>  <span><time datetime="2009-12-01">December 2009 </time> to <time datetime="2010-08-01">August 2010</time></span> </h4>
-          <p class="tags">Tags: Ruby On Rails, JavaScript </p>
-          <p class="description">Worked at SGI; an Industrial Process Management web app. </p>
-          <!-- <details open>
-          </details> -->
-          
-          
-          <!--
-          <h4><a href="">BASE</a> <span> <time datetime="2009-12-01">November 2010 </time> to <time datetime="now">Today</time> </span>  </h4>
-          <p class="tags">Tags: Ruby On Rails, JavaScript, jQuery, HTML5 </p>
-          <p class="description">Copy me and past me ;) <a href="http://twitter.com/#!/bbrains">link</a>  </p>
-          -->
-          
-        </div><!-- end #col2 -->
-        <script type="text/javascript" charset="utf-8">
-          
-        </script>
-      </section>
-      <div class="clearfloat colBorder"></div>
-  	  
-  	  
-  	  
-  	  
-  	  
-  	  
-  	  
-  	  
-  	  
-  	  
-  	  
-  	  
-  	  
-  	  <section id="reference-tab">
-        <div id="colFull">
-            
-            <header>
-            <h2>Link HUB</h2>
-            </header>
-            
-            <ul class="cf3rd">
-            	<li><h4>Social Networks</h4></li>
-            	  <nav>
-                <li><a rel="" href="http://www.twitter.com/flockonus">Twitter</a></li>
-                <li><a href="https://github.com/flockonus">GitHub</a></li>
-                <li><a href="http://www.facebook.com/fabiano.soriani">Facebook</a></li>
-                <li><a href="https://plus.google.com/115482505123591323296/about">G+</a></li>
-                <li><a href="http://www.linkedin.com/profile/view?id=38323775">LinkedIn</a></li>
-                </nav>
-            </ul>
-            
-      		<ul class="cf3rd">
-            	<li><h4>Contact</h4></li>
-            	  <nav>
-                <li><a class='span-be-gone' id="email" href="#">Email</a></li>
-                <li><a class='span-be-gone' id="skype" href="#">Skype</a></li>
-                <li><a class='span-be-gone' id="msn" href="#">MSN</a></li>
-                <!-- li><a href="#">.</a></li>
-                <li><a href="#">.</a></li -->
-                </nav>
-            </ul>
-            
-      		<ul class="cf3rd">
-            	<li><h4>Other Stuff</h4></li>
-            	  <nav>
-                <li><a href="http://www.delicious.com/soro" title="HOT!">Delicious<span style="color: red;">*</span></a></li>
-                <li><a href="http://listen.grooveshark.com/#/user/flockonus/7688263?src=5">GrooveShark</a></li>
-                <li><a href="http://stackoverflow.com/users/250019/fabiano-ps">StackOverflow</a></li>
-                <li><a href="https://profiles.google.com/115482505123591323296/buzz">Google Buzz</a></li>
-                <!-- li><a href="#">.</a></li>
-                <li><a href="#">.</a></li -->
-                </nav>
-            </ul>
-            
-        </div><!-- end #colFull -->
-      </section>
-        
-        <br class="clearfloat" />
-      
-      <footer>  
-      <div id="footer">
-      
-        <p>Flockonus &copy; 2011 - <a rel="author" href="https://github.com/flockonus/flockonus.github.com">Github source</a> - Layout inspired by <a rel="copyright" href="http://css4free.com/wp-content/uploads/templates/flare/" target="_blank">Tony Pires</a> </p>
-        
-      </div><!-- end #footer -->
-      </footer>
-      
-    </div><!-- end #container -->
   
-  </div><!-- end #bodyBackground -->
-  
-  <script>
-    j = jQuery;
-    
-    $c = {
-      email: ['fabianosoriani','@','gmail.com'].join(''),
-      skype: 'fabiano.pereira.soriani',
-      msn: ['fabianonline','@','hotmail.com'].join('')
-    }
-    
-    var playNebula = true
-    var scrollTarget = "body"
-    
-    // if( !j.browser.webkit ){
-    if( false ){
-      playNebula = false;
-      scrollTarget = "html"
-      j('#nebula').remove();
-      j('#bodyBackground').css( 'background', 'url(images/flare.jpg) no-repeat top center')
-    }
-    
-    j = jQuery;
-          
-    var tag_colors = {
-      "Ruby On Rails" : 'magenta',
-      "HTML5" : 'orange',
-      "Social" : 'green',
-      "jQuery" : 'dblue',
-      "JavaScript" : 'red',
-      "SEO" : 'yellow',
-      "Games" : 'blue',
-      "Mobile" : 'TODOgray',
-      "Node.js": 'dgreen',
-      "Flash AS3": "dorange",
-      "Redis": 'lred',
-    }
-    
-    
-    
-    j('document').ready(function(){
-      
-      // Make all tags look nice!
-      j('.tags').each(function(i,e){
-        var jthis = j(e);
-        var unformated_tags = jthis.text().split(':')[1].split(',');
-        jthis.html('');
-        // Reformat each tag, and append it back
-        j.each(unformated_tags, function(i, tag_text){
-          tag_text = tag_text.trim();
-          jthis.append( //though appending lots of times is not recommended, .append does not support an Array
-            j("<span/>", {
-              "class": "awesome small "+tag_colors[tag_text],
-              rel : 'tag',
-              text: tag_text,
-            })
-          )
-        })
-      })
-      
-      
-      // Make the top menu work!
-      j('#menubar').find('a').click(function(e){
-        var to = j( j(e.currentTarget).attr('href') ) // find the target and jQuery it
-        to.addClass('make_flip').css('transform', 'scale(0,0)')
-        j( scrollTarget ).animate(
-          {scrollTop: j(to).offset().top}, 'fast', 
-          // as callback, lets make it flip!
-          function(){
-            var jelem = j('section.make_flip')
-            
-            if( jelem.lenght == 0 ) return false;
-            
-            jelem.removeClass('make_flip')
-            jelem.animate( {
-              transform : 'scale(1,1)'//'skew(180deg)'
-              }, 300, 
-              // the grand finalle, clean any rotation left.
-              function(){
-                j(this).removeAttr('style');
-              }
-            );
-          } 
-        );
-        return false;
-      })
-      
-      
-      // Animate pictures to rotate
-      $('.projects.pics').cycle({ //http://malsup.com/jquery/cycle/lite/
-        fx: 'custom',
-        delay:  800,
-        cssBefore: { top: 340 }, 
-        animIn:  { top: 0 }, 
-        animOut: { top: -340 } 
-      });
-      $('.personal.pics').cycle({ 
-        fx: 'custom',
-        cssBefore: { top: 232 }, 
-        animIn:  { top: 0 }, 
-        animOut: { top: -232 } 
-      }); 
-    
-    
-      // align NEBULA canvas
-      j('#nebula').css('left',  (j('body').width()/2 - j('#nebula').width()/2)+'px' ).
-                   css('top', (j('#menubar').height() + 10)+'px' );
-      
-      
-      // Transform all links in this section to open in another page
-      j('.col1, .col2, .cf3rd').find('a').attr('target', '_blank');
-      
-      
-      // Footer links animations
-      j('a.span-be-gone').click(function(){
-        var jthis = j(this);
-        var id = jthis.attr('id');
-        jthis.html($c[id]).attr('href','javascript: void(0); ').animate( { transform : 'skew(0, 180deg)' }, 1000  ); //alert("'+$c.email+'")
-        jthis.unbind('click');
-        return false;
-      });
-      
-    })
-    
-    
-    // HEHEHEHEHEHEHEH
-    /*
-    var repeat = 120
-    
-    function take_a_pic(){
-      var canvas = document.getElementById("canvas2");
-      var img    = canvas.toDataURL('image/jpeg', 0.5)//("image/png");
-      j('body').append( repeat+'<img class="toGif" src="'+img+'"/>' )
-      repeat--
-      if(repeat)
-        setTimeout(take_a_pic, 33)
-    }
-    setTimeout( take_a_pic, 2500)
-    */
-    
-    
-    
-    
-	// código parabólico, muito legal!
-    // j(this).animate({ transform : 'rotate(180deg)' }, 2000, function(){ j(this).text('OOOOOOI').animate({ transform : 'translate(500px)' }, 2000) });
-  </script>
-  <script type="text/javascript" src="./files/canvas-nebula-demo.js"></script>
-  
-  <div id="chrome-site">
-    <a href="http://www.google.com/chrome/index.html" target="_blank">
-      <img src="images/best_on_chrome.png" title="*Download Google Chrome*" alt="Best seen on Google Chrome" />
-    </a>
-  </div>
-  
-</body>
-</html>
+
+
+
+
+
+</body></html>
