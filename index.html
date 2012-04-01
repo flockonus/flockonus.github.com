@@ -5,6 +5,7 @@
   <title>Flockonus Portfolio 2.0 - jsFiddle demo by flockonus</title>
   
   <script type="text/javascript" src="javascripts/jquery-1.7.1.js"></script>
+  <script type="text/javascript" src="javascripts/jquery.rotate3di.js"></script>
   
   <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
   
@@ -34,15 +35,18 @@ p{
 #panel{
     height: 10%;
 }
-#panel *{ position: absolute; background: #FAA; text-align: center;  }
+#panel *{ position: absolute; text-align: center;  }
 #panel h1{
-    top: 1%;
+    /*top: 1%;*/
     width: 50%;
     left: 25%;
     z-index: 500;
-    font-size: 200%;
+    font-size: 300%;
+    border-radius: 0 0 10px 10px;
+    text-shadow: #AAA 0px 30px 10px;
 }
 #panel .back,#panel .next{
+    background: #9AA;
     top: 1%;
     width: 5%;
     cursor: pointer;
@@ -50,13 +54,20 @@ p{
     border-radius: 10%;
     font-size: 200%;
     font-weight: bold;
+    box-shadow: black 5px 5px 5px;
+    
+    -webkit-transition: all 0.5s ease-in-out;
+    -webkit-backface-visibility: visible;
+    -webkit-transform-origin-x: 0; /*also check upon element style*/
+    -webkit-transform-origin-y: 50%;
 }
 #panel .back{ left: 18% }
 #panel .next{ left: 77% }
 
 .screen-glass{
     z-index: 50;
-    background: rgba(180,180,235,0.5);
+    background: rgba(100,100,100, 0.20);
+    border: 1px rgba(100,100,100, 0.80);
     position: absolute;
     top: 25%;
     left: 20%;
@@ -67,10 +78,10 @@ p{
     border-radius: 10px;
     padding: 2%;
     line-height: 150%;
-    font-size: 150%;
+    font-size: 140%;
     text-shadow: 2px 1px 5px #3C5A65;
     
-    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
     -webkit-transition: all 0.5s ease-in-out;
     -webkit-transform: perspective(0) rotateY(0deg) translateZ(0px);
     -webkit-backface-visibility: visible;
@@ -81,10 +92,18 @@ p{
     display: none;
 }
 
+.screen-glass img{
+    float: right;
+    border-radius: 10px;
+    width: 30%;
+    opacity: 0.9;
+}
+
 /* looking good! */
 .screen-glass.right{
     -webkit-transform: perspective(1500px) rotateY(-82deg) translate3d(61px,0px,-630px);
     z-index: 10;
+    opacity: 0.5;
     /*left: 81% !important;
     right: 0% !important;*/
 }
@@ -92,6 +111,7 @@ p{
 .screen-glass.left/* looks bad! */{
     -webkit-transform: perspective(1500px) rotateY(82deg) translate3d(-61px,0em,-630px);
     z-index: 10;
+    opacity: 0.5;
 /*    width: 50%;*/
     /*left:  20% !important;
     right: 20% !important;*/
@@ -99,7 +119,7 @@ p{
 
 .hidden{
     /*display: none;*/
-   opacity: 0;
+   opacity: 0 !important;
    z-index: 2 !important;
 }
 
@@ -110,7 +130,9 @@ p{
     z-index:1;
     -webkit-transition: 1.5s linear;/*ease; */
     -moz-transition:    1.5s linear;
-background: -webkit-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.3) 1%,rgba(255, 255, 255, 0) 70%,rgba(255, 255, 255, 0) 100%); /* Chrome10+,Safari5.1+ */
+    -o-transition:    1.5s linear;
+    -ms-transition:    1.5s linear; /*rgba(57,71,153, 0.3)*/
+background: -webkit-radial-gradient(center, ellipse cover, rgba(134,146,222,0.3) 1%,rgba(255, 255, 255, 0) 70%,rgba(255, 255, 255, 0) 100%); /* Chrome10+,Safari5.1+ */
 background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 100%); /* FF3.6+ */
 background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,1)), color-stop(40%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
 background: -o-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 100%); /* Opera 12+ */
@@ -120,6 +142,28 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 
 body{
+background: rgb(229,229,229); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(229,229,229,1) 50%, rgba(237,204,163,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,rgba(229,229,229,1)), color-stop(100%,rgba(237,204,163,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(229,229,229,1) 50%,rgba(237,204,163,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(229,229,229,1) 50%,rgba(237,204,163,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(229,229,229,1) 50%,rgba(237,204,163,1) 100%); /* IE10+ */
+background: linear-gradient(top,  rgba(229,229,229,1) 50%,rgba(237,204,163,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#edcca3',GradientType=0 ); /* IE6-9 */
+}    
+
+.darkSheet{   
+background: rgb(0,0,0); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(70,87,94,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,1)), color-stop(100%,rgba(70,87,94,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(70,87,94,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(70,87,94,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(70,87,94,1) 100%); /* IE10+ */
+background: linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(70,87,94,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#46575e',GradientType=0 ); /* IE6-9 */
+}
+
+.oldGreen{
 background: rgb(13,112,2); /* Old browsers */
 background: -moz-linear-gradient(-45deg, rgba(13,112,2,1) 0%, rgba(0,214,0,1) 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(13,112,2,1)), color-stop(100%,rgba(0,214,0,1))); /* Chrome,Safari4+ */
@@ -151,6 +195,33 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d7002', end
     -webkit-animation-iteration-count: 2;
 }
 
+#econtact{
+    font-style: italic;
+}
+
+/*
+@-webkit-keyframes rotater {
+    from { -webkit-transform: rotateZ(0deg); }
+    to { -webkit-transform: rotateZ(360deg); }
+}
+@-moz-keyframes rotater {
+    from { -moz-transform: rotateZ(0deg); }
+    to { -moz-transform: rotateZ(360deg); }
+}
+#portrait{
+    float: none;    border-radius: 10px;    width: 25%;
+    -webkit-animation: rotater 60s infinite;
+    -moz-animation: rotater 60s infinite;
+    
+    -webkit-backface-visibility: visible;
+    -webkit-transform-origin-x: 50%;
+    -webkit-transform-origin-y: 50%;
+}*/
+#portrait{
+    float: none;
+    width: 20%;
+    opacity: 0.5;
+}
   </style>
   
 
@@ -249,31 +320,85 @@ function setTitle () {
   j('#panel h1').text( j('.screen-glass.middle h1').text() );
 }
 
+function bindArrowKeys(){
+    var lastTap = new Date();
+    j(document).keydown( function(e) {
+        if( new Date() - lastTap > 100 ){
+            
+            if( e.which === 39 ){
+                nextGlass();
+                lastTap = new Date();
+            }
+            if( e.which === 37 ){
+                prevGlass();
+                lastTap = new Date();
+            }
+        }
+    })
+}
+
+function nextGlass() {
+    var glass = j('.screen-glass.middle')
+      , jarrow = j('#panel .next');
+    
+    jarrow.css('-webkit-transform', 'perspective(150px) rotateY(15deg)' );
+    var oldShadow = jarrow.css('box-shadow');
+    jarrow.css('box-shadow', 'black 2px 2px 4px' );
+    setTimeout(function(){
+        jarrow.css('-webkit-transform', 'perspective(150px) rotateY(0deg)' );
+        jarrow.css('box-shadow', oldShadow );
+    },200)
+    
+    if( glass.next().size() ){
+        glass.removeClass('middle').addClass('left');
+        glass.prev().addClass('hidden');//.removeClass('left')
+        glass.next().addClass('middle').removeClass('right');
+        glass.next().next().addClass('right').removeClass('hidden');
+    }
+    setTitle();
+}
+
+function prevGlass() {
+    var glass = j('.screen-glass.middle')
+      , jarrow = j('#panel .back');
+    
+    jarrow.css('-webkit-transform', 'perspective(150px) rotateY(-15deg)' );
+    var oldShadow = jarrow.css('box-shadow');
+    jarrow.css('box-shadow', 'black 2px 2px 4px' );
+    setTimeout(function(){
+        jarrow.css('-webkit-transform', 'perspective(150px) rotateY(0deg)' );
+        jarrow.css('box-shadow', oldShadow );
+    },200)
+    
+    j('#panel .back').css('-webkit-transform', 'perspective(150px) rotateY(-15deg)' )
+    if( glass.prev().size() ){
+        glass.removeClass('middle').addClass('right');
+        glass.prev().addClass('middle').removeClass('left');
+        glass.prev().prev().addClass('left').removeClass('hidden');
+        glass.next().addClass('hidden');//.removeClass('right')
+    }
+    setTitle();
+}
+
+// SPAM BE GONE
+function printEmail () {
+  var aaa = '@'
+    , bbb = 'il.com';
+  
+  j('#econtact').text( ['fabiano', 'soriani', aaa, 'gma', bbb ].join('') )
+}
+
+function spinPortrait(){
+    $('#portrait').rotate3Di('+=360', 20000, {easing:'linear', complete: spinPortrait });
+}
+
 function init() {
     //setTimeout( function(){j("#welcome").fadeOut();}, 1000);
     var dim = getDimension();
     positionElements(dim);
     correctCSS(dim);
-    j('#panel .next').click(function() {
-        var glass = j('.screen-glass.middle');
-        if( glass.next().size() ){
-            glass.removeClass('middle').addClass('left');
-            glass.prev().addClass('hidden');//.removeClass('left')
-            glass.next().addClass('middle').removeClass('right');
-            glass.next().next().addClass('right').removeClass('hidden');
-        }
-        setTitle();
-    });
-    j('#panel .back').click(function() {
-        var glass = j('.screen-glass.middle');
-        if( glass.prev().size() ){
-            glass.removeClass('middle').addClass('right');
-            glass.prev().addClass('middle').removeClass('left');
-            glass.prev().prev().addClass('left').removeClass('hidden');
-            glass.next().addClass('hidden');//.removeClass('right')
-        }
-        setTitle();
-    });
+    j('#panel .next').click( nextGlass );
+    j('#panel .back').click( prevGlass );
     rotateSpots(0, 1500);
     //KEYFRAMES, sera que vai funcionar?
     // fallback eh usar um jquery e outro com  setTimeout, contanto com a anicao basica
@@ -283,9 +408,12 @@ function init() {
     // 
     
     orderGlasses();
+    bindArrowKeys();
     setTimeout( function(){
         j('h1:first').addClass('h1distort');
     }, 1000);
+    printEmail();
+    spinPortrait();
 }
 init();
 
@@ -297,9 +425,13 @@ init();
 
 </head>
 <body>
-  <header style="height: 156.06px; "> 
+
+<div class="spot" style="left: 28%; top: -25%; ">&nbsp;</div>
+<div class="spot" style="left: -28%; top: 30%; ">&nbsp;</div>
+
+<header style="height: 156.06px; "> 
     <nav id="panel">
-        <div class="back"> &lt; </div>
+        <div class="back" style="-webkit-transform-origin-x: 100%; box-shadow: rgb(0, 0, 0) -5px 5px 5px 0px;"> &lt; </div>
         <h1 class="h1distort"> Page Title </h1>
         <div class="next"> &gt; </div>
     </nav>
@@ -309,54 +441,78 @@ init();
         <header>
             <h1>Fabiano PS Portfolio</h1>
         </header>
-        <p>
-            <p>I am a <b>web developer</b>, especialized in back-end and passionate for front-end.</p>
-            <p>Versed in Node.js, Ruby, MongoDB, RESTful, jQuery, CSS, HTML5, SEO, UX</p>
-            <p>Aspire working with <b>HTML5 Games</b> and <b>social web</b>.</p>
-            <p>This website shows some of my most <b>recent Portfolio</b>.</p>
-            <p>Consult <b><a href="https://docs.google.com/document/d/1gi8UQ31akugdgfq4vlD_8MexFdQBv8bU5ojwE6npF-Q/edit">my curriculum</a></b> for formal education and past jobs.</p>
-        </p>
+        <div style="text-align: center;position: absolute; width: 100%;bottom: 2%; left:0;">
+            <img id="portrait" src="images/gallery/face-round.png" />
+        </div>
+        <p>I am a <b>developer</b>, especialized in back-end and passionate for front-end new techs.</p>
+        <p>Versed in Node.js, Ruby, MongoDB, SQL, jQuery, CSS, HTML5, SEO, UX</p>
+        <p>This website shows some of my most <b>recent Portfolio</b>.</p>
+        <p>Consult <b><a href="https://docs.google.com/document/d/1gi8UQ31akugdgfq4vlD_8MexFdQBv8bU5ojwE6npF-Q/edit">my curriculum</a></b> for formal education and past jobs.</p>
     </article>
     <article id="page2" class="screen-glass">
         <header>
             <h1>GameWiser</h1>
             <div>JavaScript, Node.js, jQuery, MongoDB</div>
         </header>
-        <p>
-            Independent peer based game review website. We proposed as focus to create a better system to search and review games from several platforms.
-        </p>
+        <img style="float: right; border-radius: 10px; width: 30%;" src="images/gallery/gamewiser.png" />
+        <p>Independent, user based, game review website.</p> 
+        <p>Our focus is to create a better system to search and review games from several platforms.</p>
     </article>
     <article id="page3" class="screen-glass">
         <header>
             <h1>Flockin Games</h1>
             <div>Node.js, ActionScript3, MySQL</div>
         </header>
-        <p>
-            An extensive project, involving crafting a in-site game tracking 
-        </p>
+        <img style="float: right; border-radius: 10px; width: 30%;" src="images/gallery/flockin2.jpg" />
+        <p>Extensive project aiming tracking player progress in training games.</p>
+        <p>Involved projecting and implementing a Node.js progress tracker, also generating reports and providing administrative interface.</p>
     </article>
     <article id="page4" class="screen-glass">
         <header>
-            <h1>This to be page 2!</h1>
+            <h1>Blickz!</h1>
+            <div>ActionScript3, Flixel</div>
         </header>
-        <p>
-            The pear is cool
-        </p>
+        <img style="float: right; border-radius: 10px; width: 30%;" src="images/gallery/blickz.png" />
+        <p>Developed (within a group) under 48 hours for the game marathon Global Game Jam!</p>
+        <p>We used AS3 as programming language and Flixel as framework.</p>
+        <p>Won <b>regional awards</b> for: innovative gameplay, fun. Second place for: audio, control, multiplayer, sum</p>
     </article>
     <article id="page5" class="screen-glass">
         <header>
-            <h1>This to be page 2!</h1>
+            <h1>F.I.R.E.</h1>
+            <div>Rails, Onepage app, jQuery</div>
         </header>
-        <p>
-            The pear is cool
-        </p>
+        <img style="float: right; border-radius: 10px; width: 30%;" src="images/gallery/bananabrains_fire.jpg" />
+        <p>An anbixious project which the goal was to create a F2P game that put the player in the life of a ascending soccer player as a MMO.</p>
+        <p>Leadered? by me along 1 other developer/artist and a soccer specialist as game developer. Currently there is a working prototype.</p>
+    </article>
+    <article id="page6" class="screen-glass">
+        <header>
+            <h1>FindGamesDB</h1>
+            <div>Ruby, MongoDB, jQuery</div>
+        </header>
+        <img style="float: right; border-radius: 10px; width: 30%;" src="images/gallery/fgdb.png" />
+        <p>Inspired by Jinni, this was an attempt to create a new, efficent game search engine!</p>
+        <p>This project led--? me to GameWiser.</p>
+        <p>Working prototype!</p>
+    </article>
+    
+    
+    
+    
+    
+    <article id="pageFinal" class="screen-glass">
+        <header>
+            <h1>Contact?</h1>
+        </header>
+        <p>For feedback or work opportunities please send me an e-mail via: <span id="econtact"></span></p>
+        <p>I am currently available for hire in Vancouver - BC</p>
+        <p>Working with <em>social web, game industry, startups, transportation or robotics</em> have a very strong appeal for me.</p>
+        <p>Fabiano Pereira Soriani : PHONE GOES HERE</p>
     </article>
 </section>
 
-<div class="spot" style="left: 28%; top: -25%; ">&nbsp;</div>
-<div class="spot" style="left: -28%; top: 30%; ">&nbsp;</div>
 
-  
 
 
 
