@@ -92,11 +92,12 @@ p{
     display: none;
 }
 
-.screen-glass img{
+.img_desc{
     float: right;
     border-radius: 10px;
     width: 30%;
     opacity: 0.9;
+    margin-left: 2%;
 }
 
 /* looking good! */
@@ -222,7 +223,35 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d7002', end
     width: 20%;
     opacity: 0.5;
 }
-  </style>
+
+
+.tag {
+    display: inline-block;
+    position: relative;
+    padding: 5px 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+/*    font: 15px/1.4 "myriad-pro-1","myriad-pro-2","Lucida Grande",Sans-Serif;*/
+    font-variant: small-caps;
+    font-style: italic;
+    font-size: 80%;
+    background: rgba(182, 211, 244, 0.5);
+/*    background: -webkit-gradient(linear, left top, left bottom, from(#B6D3F4), to(#5483B8));*/
+    background: -webkit-linear-gradient(top, rgba(182, 211, 244, 0.32), rgba(84, 131, 184, 0.01));
+    background: -moz-linear-gradient(top, rgba(182, 211, 244, 0.32), rgba(84, 131, 184, 0.01));
+    background: -ms-linear-gradient(top, rgba(182, 211, 244, 0.32), rgba(84, 131, 184, 0.01));
+    background: -o-linear-gradient(top, rgba(182, 211, 244, 0.32), rgba(84, 131, 184, 0.01));
+    color: black;
+    -webkit-box-shadow: inset 0 0 10px #fff,0 1px 3px rgba(0,0,0,0.6);
+    -moz-box-shadow:    inset 0 0 10px #fff,0 1px 3px rgba(0,0,0,0.6);
+    box-shadow:         inset 0 0 10px #fff,0 1px 3px rgba(0,0,0,0.6);
+    border: 1px solid #9AC9FF !important;
+    font-weight: 600;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+</style>
   
 
 
@@ -437,6 +466,8 @@ init();
     </nav>
 </header>
 <section>
+    
+    
     <article id="page1" class="screen-glass">
         <header>
             <h1>Fabiano PS Portfolio</h1>
@@ -448,56 +479,87 @@ init();
         <p>Versed in Node.js, Ruby, MongoDB, SQL, jQuery, CSS, HTML5, SEO, UX</p>
         <p>This website shows some of my most <b>recent Portfolio</b>.</p>
         <p>Consult <b><a href="https://docs.google.com/document/d/1gi8UQ31akugdgfq4vlD_8MexFdQBv8bU5ojwE6npF-Q/edit">my curriculum</a></b> for formal education and past jobs.</p>
+        <p style="position: absolute; left: 0; bottom: 0;"><img style="width: 10%" src="images/gallery/tw_logo.png" alt="twitter" /> <img style="width: 10%" src="images/gallery/fb_logo.png" alt="facebook" /> <img style="width: 10%" src="images/gallery/in_logo.png" alt="linkedin" /></p>
     </article>
+    
+    
     <article id="page2" class="screen-glass">
         <header>
             <h1>GameWiser</h1>
-            <div>JavaScript, Node.js, jQuery, MongoDB</div>
         </header>
-        <img style="float: right; border-radius: 10px; width: 30%;" src="images/gallery/gamewiser.png" />
-        <p>Independent, user based, game review website.</p> 
-        <p>Our focus is to create a better system to search and review games from several platforms.</p>
+        <img class="img_desc" src="images/gallery/gamewiser.png" />
+        <p> Independent, user based, game review website.</p>
+        <p>Two man project, Our focus is to create a better system to search and review games from several platforms.</p>
+        <p>Under development.</p>
+        <footer>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">jQuery</span>
+            <span class="tag">MongoDB</span>
+        </footer>
     </article>
+    
+    
     <article id="page3" class="screen-glass">
         <header>
             <h1>Flockin Games</h1>
-            <div>Node.js, ActionScript3, MySQL</div>
         </header>
-        <img style="float: right; border-radius: 10px; width: 30%;" src="images/gallery/flockin2.jpg" />
+        <img class="img_desc" src="images/gallery/flockin2.jpg" />
         <p>Extensive project aiming tracking player progress in training games.</p>
         <p>Involved projecting and implementing a Node.js progress tracker, also generating reports and providing administrative interface.</p>
+        <footer>
+            <span class="tag">Node.js</span>
+            <span class="tag">ActionScript3</span>
+            <span class="tag">MySQL</span>
+        </footer>
     </article>
+    
+    
     <article id="page4" class="screen-glass">
         <header>
             <h1>Blickz!</h1>
-            <div>ActionScript3, Flixel</div>
         </header>
-        <img style="float: right; border-radius: 10px; width: 30%;" src="images/gallery/blickz.png" />
-        <p>Developed (within a group) under 48 hours for the game marathon Global Game Jam!</p>
+        <img class="img_desc" src="images/gallery/blickz.png" />
+        <p>Developed (along a group) under 48 hours for the game marathon Global Game Jam!</p>
         <p>We used AS3 as programming language and Flixel as framework.</p>
-        <p>Won <b>regional awards</b> for: innovative gameplay, fun. Second place for: audio, control, multiplayer, sum</p>
+        <p>Won <b>regional awards</b> for: innovative gameplay, fun. Second place for: audio, control, multiplayer and point sum.</p>
+        <footer>
+            <span class="tag">ActionScript3</span>
+            <span class="tag">Flixel</span>
+        </footer>
     </article>
+    
+    
     <article id="page5" class="screen-glass">
         <header>
             <h1>F.I.R.E.</h1>
-            <div>Rails, Onepage app, jQuery</div>
         </header>
-        <img style="float: right; border-radius: 10px; width: 30%;" src="images/gallery/bananabrains_fire.jpg" />
-        <p>An anbixious project which the goal was to create a F2P game that put the player in the life of a ascending soccer player as a MMO.</p>
-        <p>Leadered? by me along 1 other developer/artist and a soccer specialist as game developer. Currently there is a working prototype.</p>
+        <img class="img_desc" src="images/gallery/bananabrains_fire.jpg" />
+        <p>An ambitious project which the goal was to create a F2P game that put the player in the life of a ascending soccer player as a MMO.</p>
+        <p>Team of 3, 1 other developer/artist and a soccer specialist as game developer, project led by me.</p>
+        <p>There is a working prototype.</p>
+        <footer>
+            <span class="tag">Ruby on Rails</span>
+            <span class="tag">Single Page Web App</span>
+            <span class="tag">jQuery</span>
+        </footer>
     </article>
+    
+    
     <article id="page6" class="screen-glass">
         <header>
             <h1>FindGamesDB</h1>
-            <div>Ruby, MongoDB, jQuery</div>
         </header>
-        <img style="float: right; border-radius: 10px; width: 30%;" src="images/gallery/fgdb.png" />
+        <img class="img_desc" src="images/gallery/fgdb.png" />
         <p>Inspired by Jinni, this was an attempt to create a new, efficent game search engine!</p>
         <p>This project led--? me to GameWiser.</p>
         <p>Working prototype!</p>
+        <footer>
+            <span class="tag">Ruby on Rails</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">jQuery</span>
+        </footer>
     </article>
-    
-    
     
     
     
@@ -505,10 +567,10 @@ init();
         <header>
             <h1>Contact?</h1>
         </header>
-        <p>For feedback or work opportunities please send me an e-mail via: <span id="econtact"></span></p>
-        <p>I am currently available for hire in Vancouver - BC</p>
+        <p>I am currently available for hire in <b>Vancouver-BC</b></p>
         <p>Working with <em>social web, game industry, startups, transportation or robotics</em> have a very strong appeal for me.</p>
-        <p>Fabiano Pereira Soriani : PHONE GOES HERE</p>
+        <p>For <b>work</b> opportunities please send me an e-mail via: <span id="econtact"></span></p>
+        <p>Fabiano Pereira Soriani : 778-989-5464</p>
     </article>
 </section>
 
