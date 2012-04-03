@@ -8,248 +8,9 @@
   <script type="text/javascript" src="javascripts/jquery.rotate3di.js"></script>
   
   <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
+  <link href="style.css" rel="stylesheet" type="text/css" />
   
   <style type="text/css">
-
-*{ margin: 0; padding: 0;}
-
-html, body{
-    /* FONTS? Karla 
-     * 
-     * background: #BDB;*/
-    height: 100%;
-    -ms-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    overflow: hidden;
-    /*font-size: 110%;*/
-    font-family: 'Pontano Sans', sans-serif, "Helvetica", "Lucida Sans", "Lucida Sans Unicode";
-}
-
-p{
-    margin: 2% 0;
-}
-
-/*body > header{ heigth: 15% }*/
-#panel{
-    height: 10%;
-}
-#panel *{ position: absolute; text-align: center;  }
-#panel h1{
-    /*top: 1%;*/
-    width: 50%;
-    left: 25%;
-    z-index: 500;
-    font-size: 300%;
-    border-radius: 0 0 10px 10px;
-    text-shadow: #AAA 0px 30px 10px;
-}
-#panel .back,#panel .next{
-    background: #9AA;
-    top: 1%;
-    width: 5%;
-    cursor: pointer;
-    z-index: 500;
-    border-radius: 10%;
-    font-size: 200%;
-    font-weight: bold;
-    box-shadow: black 5px 5px 5px;
-    
-    -webkit-transition: all 0.5s ease-in-out;
-    -webkit-backface-visibility: visible;
-    -webkit-transform-origin-x: 0; /*also check upon element style*/
-    -webkit-transform-origin-y: 50%;
-}
-#panel .back{ left: 18% }
-#panel .next{ left: 77% }
-
-.screen-glass{
-    z-index: 50;
-    background: rgba(100,100,100, 0.20);
-    border: 1px rgba(100,100,100, 0.80);
-    position: absolute;
-    top: 25%;
-    left: 20%;
-    right: 20%;
-    bottom: 10%;
-    font-size: 90%;
-    opacity: 1;
-    border-radius: 10px;
-    padding: 2%;
-    line-height: 150%;
-    font-size: 140%;
-    text-shadow: 2px 1px 5px #3C5A65;
-    
-    -moz-transition: all 0.5s ease-in-out;
-    -webkit-transition: all 0.5s ease-in-out;
-    -webkit-transform: perspective(0) rotateY(0deg) translateZ(0px);
-    -webkit-backface-visibility: visible;
-    -webkit-transform-origin-x: 50%;
-    -webkit-transform-origin-y: 50%;
-}
-.screen-glass h1{
-    display: none;
-}
-
-.img_desc{
-    float: right;
-    border-radius: 10px;
-    width: 30%;
-    opacity: 0.9;
-    margin-left: 2%;
-}
-
-/* looking good! */
-.screen-glass.right{
-    -webkit-transform: perspective(1500px) rotateY(-82deg) translate3d(61px,0px,-630px);
-    z-index: 10;
-    opacity: 0.5;
-    /*left: 81% !important;
-    right: 0% !important;*/
-}
-
-.screen-glass.left/* looks bad! */{
-    -webkit-transform: perspective(1500px) rotateY(82deg) translate3d(-61px,0em,-630px);
-    z-index: 10;
-    opacity: 0.5;
-/*    width: 50%;*/
-    /*left:  20% !important;
-    right: 20% !important;*/
-}
-
-.hidden{
-    /*display: none;*/
-   opacity: 0 !important;
-   z-index: 2 !important;
-}
-
-.spot{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index:1;
-    -webkit-transition: 1.5s linear;/*ease; */
-    -moz-transition:    1.5s linear;
-    -o-transition:    1.5s linear;
-    -ms-transition:    1.5s linear; /*rgba(57,71,153, 0.3)*/
-background: -webkit-radial-gradient(center, ellipse cover, rgba(134,146,222,0.3) 1%,rgba(255, 255, 255, 0) 70%,rgba(255, 255, 255, 0) 100%); /* Chrome10+,Safari5.1+ */
-background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 100%); /* FF3.6+ */
-background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,1)), color-stop(40%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
-background: -o-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 100%); /* Opera 12+ */
-background: -ms-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 100%); /* IE10+ */
-background: radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-}
-
-body{
-background: rgb(229,229,229); /* Old browsers */
-background: -moz-linear-gradient(top,  rgba(229,229,229,1) 50%, rgba(237,204,163,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,rgba(229,229,229,1)), color-stop(100%,rgba(237,204,163,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(229,229,229,1) 50%,rgba(237,204,163,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(229,229,229,1) 50%,rgba(237,204,163,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(229,229,229,1) 50%,rgba(237,204,163,1) 100%); /* IE10+ */
-background: linear-gradient(top,  rgba(229,229,229,1) 50%,rgba(237,204,163,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#edcca3',GradientType=0 ); /* IE6-9 */
-}    
-
-.darkSheet{   
-background: rgb(0,0,0); /* Old browsers */
-background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(70,87,94,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,1)), color-stop(100%,rgba(70,87,94,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(70,87,94,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(70,87,94,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(70,87,94,1) 100%); /* IE10+ */
-background: linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(70,87,94,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#46575e',GradientType=0 ); /* IE6-9 */
-}
-
-.oldGreen{
-background: rgb(13,112,2); /* Old browsers */
-background: -moz-linear-gradient(-45deg, rgba(13,112,2,1) 0%, rgba(0,214,0,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(13,112,2,1)), color-stop(100%,rgba(0,214,0,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(-45deg, rgba(13,112,2,1) 0%,rgba(0,214,0,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(-45deg, rgba(13,112,2,1) 0%,rgba(0,214,0,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(-45deg, rgba(13,112,2,1) 0%,rgba(0,214,0,1) 100%); /* IE10+ */
-background: linear-gradient(-45deg, rgba(13,112,2,1) 0%,rgba(0,214,0,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d7002', endColorstr='#00d600',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-}
-
-@-webkit-keyframe sintH1 {
-    from {
-        -webkit-transform: skew(0deg,0deg);
-        -moz-transform: skew(0deg,0deg);
-    }
-    50%{
-        -webkit-transform: skew(90deg,0deg);
-        -moz-transform: skew(90deg,0deg);
-    }
-    100%{
-        -webkit-transform: skew(180deg,0deg);
-        -moz-transform: skew(180deg,0deg);
-    }
-}
-
-.h1distort{
-    -webkit-animation-name: sintH1;
-    -webkit-animation-duration: 0.5s;
-    -webkit-animation-iteration-count: 2;
-}
-
-#econtact{
-    font-style: italic;
-}
-
-/*
-@-webkit-keyframes rotater {
-    from { -webkit-transform: rotateZ(0deg); }
-    to { -webkit-transform: rotateZ(360deg); }
-}
-@-moz-keyframes rotater {
-    from { -moz-transform: rotateZ(0deg); }
-    to { -moz-transform: rotateZ(360deg); }
-}
-#portrait{
-    float: none;    border-radius: 10px;    width: 25%;
-    -webkit-animation: rotater 60s infinite;
-    -moz-animation: rotater 60s infinite;
-    
-    -webkit-backface-visibility: visible;
-    -webkit-transform-origin-x: 50%;
-    -webkit-transform-origin-y: 50%;
-}*/
-#portrait{
-    float: none;
-    width: 20%;
-    opacity: 0.5;
-}
-
-
-.tag {
-    display: inline-block;
-    position: relative;
-    padding: 5px 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-/*    font: 15px/1.4 "myriad-pro-1","myriad-pro-2","Lucida Grande",Sans-Serif;*/
-    font-variant: small-caps;
-    font-style: italic;
-    font-size: 80%;
-    background: rgba(182, 211, 244, 0.5);
-/*    background: -webkit-gradient(linear, left top, left bottom, from(#B6D3F4), to(#5483B8));*/
-    background: -webkit-linear-gradient(top, rgba(182, 211, 244, 0.32), rgba(84, 131, 184, 0.01));
-    background: -moz-linear-gradient(top, rgba(182, 211, 244, 0.32), rgba(84, 131, 184, 0.01));
-    background: -ms-linear-gradient(top, rgba(182, 211, 244, 0.32), rgba(84, 131, 184, 0.01));
-    background: -o-linear-gradient(top, rgba(182, 211, 244, 0.32), rgba(84, 131, 184, 0.01));
-    color: black;
-    -webkit-box-shadow: inset 0 0 10px #fff,0 1px 3px rgba(0,0,0,0.6);
-    -moz-box-shadow:    inset 0 0 10px #fff,0 1px 3px rgba(0,0,0,0.6);
-    box-shadow:         inset 0 0 10px #fff,0 1px 3px rgba(0,0,0,0.6);
-    border: 1px solid #9AC9FF !important;
-    font-weight: 600;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
-}
 
 </style>
   
@@ -281,7 +42,7 @@ function positionElements(dim) {
         arrowBtW = 20;
     // ensure header size!
     j('body > header').css('height', dim.h * 0.18);
-    //j('.screen-glass:last').hide()
+    //j('.screen:last').hide()
 }
 
 // all percentages, so never goes wrong
@@ -325,20 +86,20 @@ function correctCSS (dim) {
     
     // TODO, marcar esse elemento, e nao ficar adicionando sheet toda hora!
     var style = document.createElement('style');
-    style.innerHTML = ".screen-glass.right { -webkit-transform: "+glasses.right.template+" } "+".screen-glass.left  { -webkit-transform: "+glasses.left.template+" }";
+    style.innerHTML = ".screen.right { -webkit-transform: "+glasses.right.template+" } "+".screen.left  { -webkit-transform: "+glasses.left.template+" }";
     j('head').append( style );
     
     
     
     // nao ta escrevendo no Chrome! pq?
-    //css.insertRule( ".screen-glass.right { -webkit-transform: "+glasses.right.template+" }", 0 )
-    //css.insertRule( ".screen-glass.left  { -webkit-transform: "+glasses.left.template+" }", 1 )
+    //css.insertRule( ".screen.right { -webkit-transform: "+glasses.right.template+" }", 0 )
+    //css.insertRule( ".screen.left  { -webkit-transform: "+glasses.left.template+" }", 1 )
     
     console.log('dim', dim.w, dim.h);
 }
 
 function orderGlasses () {
-  var glasses = j('.screen-glass');
+  var glasses = j('.screen');
   glasses.filter(':eq(0)').addClass('middle')
   glasses.filter(':eq(1)').addClass('right')
   glasses.filter(':gt(1)').addClass('hidden').addClass('right')
@@ -346,7 +107,7 @@ function orderGlasses () {
 }
 
 function setTitle () {
-  j('#panel h1').text( j('.screen-glass.middle h1').text() );
+  j('#panel h1').text( j('.screen.middle h1').text() );
 }
 
 function bindArrowKeys(){
@@ -367,7 +128,7 @@ function bindArrowKeys(){
 }
 
 function nextGlass() {
-    var glass = j('.screen-glass.middle')
+    var glass = j('.screen.middle')
       , jarrow = j('#panel .next');
     
     jarrow.css('-webkit-transform', 'perspective(150px) rotateY(15deg)' );
@@ -385,10 +146,11 @@ function nextGlass() {
         glass.next().next().addClass('right').removeClass('hidden');
     }
     setTitle();
+    return false;
 }
 
 function prevGlass() {
-    var glass = j('.screen-glass.middle')
+    var glass = j('.screen.middle')
       , jarrow = j('#panel .back');
     
     jarrow.css('-webkit-transform', 'perspective(150px) rotateY(-15deg)' );
@@ -407,6 +169,7 @@ function prevGlass() {
         glass.next().addClass('hidden');//.removeClass('right')
     }
     setTitle();
+    return false;
 }
 
 // SPAM BE GONE
@@ -421,6 +184,38 @@ function spinPortrait(){
     $('#portrait').rotate3Di('+=360', 20000, {easing:'linear', complete: spinPortrait });
 }
 
+function mySideChange(front) {
+    if (front) {
+        $(this).parent().find('.front').show();
+        $(this).parent().find('.back').hide();
+    } else {
+        $(this).parent().find('.front').hide();
+        $(this).parent().find('.back').show();
+    }
+}
+
+function addEffectImgLinks () {
+    $('.screen img').hover(
+        function () {
+            var jthis = j(this);
+            jthis.css('box-shadow', "rgba(15, 102, 252, 0.7) 0 4px 5px, rgba(15, 102, 252, 0.7) 0 -4px 5px");
+            //jthis.css('opacity', 0.5);
+            //alert(1)
+            //$(this).find('div').stop().rotate3Di('flip', 250, {direction: 'clockwise', sideChange: mySideChange});
+        },
+        function () {
+            var jthis = j(this);
+            jthis.css('box-shadow', '');
+            //jthis.css('opacity', 1);
+            //$(this).find('div').stop().rotate3Di('unflip', 500, {sideChange: mySideChange});
+            //alert(2)
+            
+        }
+    );
+    
+    i = $('img:eq(4)'); console.log( i.position(), i.width(), i.height() )
+}
+
 function init() {
     //setTimeout( function(){j("#welcome").fadeOut();}, 1000);
     var dim = getDimension();
@@ -428,21 +223,17 @@ function init() {
     correctCSS(dim);
     j('#panel .next').click( nextGlass );
     j('#panel .back').click( prevGlass );
+    
     rotateSpots(0, 1500);
-    //KEYFRAMES, sera que vai funcionar?
-    // fallback eh usar um jquery e outro com  setTimeout, contanto com a anicao basica
-    // especificacao (bom!) http://www.w3.org/TR/css3-animations/#keyframes-
-    // pratica neve (webkit) natbat.net/code/clientside/css/snowflakes/
-    // sprites (util!) http://hacks.mozilla.org/2011/09/taking-steps-with-css-animations/
-    // 
     
     orderGlasses();
     bindArrowKeys();
-    setTimeout( function(){
-        j('h1:first').addClass('h1distort');
-    }, 1000);
+    //setTimeout( function(){
+    //    j('h1:first').addClass('h1distort');
+    //}, 1000);
     printEmail();
-    spinPortrait();
+    //spinPortrait();
+    addEffectImgLinks();
 }
 init();
 
@@ -468,39 +259,50 @@ init();
 <section>
     
     
-    <article id="page1" class="screen-glass">
+    <article id="page1" class="screen glass">
         <header>
             <h1>Fabiano PS Portfolio</h1>
         </header>
+        <!--
         <div style="text-align: center;position: absolute; width: 100%;bottom: 2%; left:0;">
             <img id="portrait" src="images/gallery/face-round.png" />
         </div>
-        <p>I am a <b>developer</b>, especialized in back-end and passionate for front-end new techs.</p>
+        -->
+        <p>I am a <b>developer</b>, especialized in back-end and passionate for front-end state of art</p>
         <p>Versed in Node.js, Ruby, MongoDB, SQL, jQuery, CSS, HTML5, SEO, UX</p>
-        <p>This website shows some of my most <b>recent Portfolio</b>.</p>
-        <p>Consult <b><a href="https://docs.google.com/document/d/1gi8UQ31akugdgfq4vlD_8MexFdQBv8bU5ojwE6npF-Q/edit">my curriculum</a></b> for formal education and past jobs.</p>
-        <p style="position: absolute; left: 0; bottom: 0;"><img style="width: 10%" src="images/gallery/tw_logo.png" alt="twitter" /> <img style="width: 10%" src="images/gallery/fb_logo.png" alt="facebook" /> <img style="width: 10%" src="images/gallery/in_logo.png" alt="linkedin" /></p>
+        <p>This website shows some of my most <b>recent Portfolio</b></p>
+        <p>Consult <b><a href="https://docs.google.com/document/d/1gi8UQ31akugdgfq4vlD_8MexFdQBv8bU5ojwE6npF-Q/edit">my curriculum</a></b> for formal education and past jobs</p>
+        
+        <div style="text-align: right; width: 5%;position: absolute;right: 2%;bottom: 2%;"> <!-- style="position: absolute; left: 0; bottom: 0;" -->
+            <a href="http://www.linkedin.com/profile/view?id=38323775" target="_blank"><img style="width: 100%;" src="images/gallery/linkedin.png" alt="linkedin" /><a/><br />
+            <a href="http://www.twitter.com/flockonus" target="_blank"><img style="width: 100%;" src="images/gallery/twitter.png" alt="twitter" /></a><br />
+            <a href="http://www.fabianosoriani.wordpress.com" target="_blank"><img style="width: 100%;" src="images/gallery/wordpress-2.png" alt="wordpress blog" /></a><br />
+            <a href="http://www.github.com/flockonus" target="_blank"><img style="width: 100%;" src="images/gallery/github.png" alt="github" /></a><br />
+            <a href="http://www.facebook.com/fabiano.soriani" target="_blank"><img style="width: 100%;" src="images/gallery/facebook.png" alt="facebook" /></a><br />
+        </div>
     </article>
     
     
-    <article id="page2" class="screen-glass">
+    <article id="page2" class="screen glass">
         <header>
             <h1>GameWiser</h1>
         </header>
-        <img class="img_desc" src="images/gallery/gamewiser.png" />
+        <a href="http://gamewiser.com" class="popout">
+            <img class="img_desc" src="images/gallery/gamewiser.png" />
+        </a>
         <p> Independent, user based, game review website.</p>
-        <p>Two man project, Our focus is to create a better system to search and review games from several platforms.</p>
+        <p>Two man project, our focus is to create a better system to search and review games from several platforms.</p>
         <p>Under development.</p>
         <footer>
-            <span class="tag">JavaScript</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">jQuery</span>
-            <span class="tag">MongoDB</span>
+            <span class="tag glass">JavaScript</span>
+            <span class="tag glass">Node.js</span>
+            <span class="tag glass">jQuery</span>
+            <span class="tag glass">MongoDB</span>
         </footer>
     </article>
     
     
-    <article id="page3" class="screen-glass">
+    <article id="page3" class="screen glass">
         <header>
             <h1>Flockin Games</h1>
         </header>
@@ -508,14 +310,14 @@ init();
         <p>Extensive project aiming tracking player progress in training games.</p>
         <p>Involved projecting and implementing a Node.js progress tracker, also generating reports and providing administrative interface.</p>
         <footer>
-            <span class="tag">Node.js</span>
-            <span class="tag">ActionScript3</span>
-            <span class="tag">MySQL</span>
+            <span class="tag glass">Node.js</span>
+            <span class="tag glass">ActionScript3</span>
+            <span class="tag glass">MySQL</span>
         </footer>
     </article>
     
     
-    <article id="page4" class="screen-glass">
+    <article id="page4" class="screen glass">
         <header>
             <h1>Blickz!</h1>
         </header>
@@ -524,46 +326,74 @@ init();
         <p>We used AS3 as programming language and Flixel as framework.</p>
         <p>Won <b>regional awards</b> for: innovative gameplay, fun. Second place for: audio, control, multiplayer and point sum.</p>
         <footer>
-            <span class="tag">ActionScript3</span>
-            <span class="tag">Flixel</span>
+            <span class="tag glass">ActionScript3</span>
+            <span class="tag glass">flixel</span>
         </footer>
     </article>
     
     
-    <article id="page5" class="screen-glass">
+    <article id="page5" class="screen glass">
         <header>
             <h1>F.I.R.E.</h1>
         </header>
         <img class="img_desc" src="images/gallery/bananabrains_fire.jpg" />
-        <p>An ambitious project which the goal was to create a F2P game that put the player in the life of a ascending soccer player as a MMO.</p>
-        <p>Team of 3, 1 other developer/artist and a soccer specialist as game developer, project led by me.</p>
-        <p>There is a working prototype.</p>
+        <p>Team of 3 with an ambitious project, aiming to create a F2P game that put the player in the life of a ascending soccer player as a MMO</p>
+        <p>Our beta had over 40 players, they spent an average of 3 min/day. The prototype is still up and running</p>
         <footer>
-            <span class="tag">Ruby on Rails</span>
-            <span class="tag">Single Page Web App</span>
-            <span class="tag">jQuery</span>
+            <span class="tag glass">Game</span>
+            <span class="tag glass">Ruby on Rails</span>
+            <span class="tag glass">Single Page Web App</span>
+            <span class="tag glass">jQuery</span>
         </footer>
     </article>
     
     
-    <article id="page6" class="screen-glass">
+    <article id="page6" class="screen glass">
         <header>
             <h1>FindGamesDB</h1>
         </header>
         <img class="img_desc" src="images/gallery/fgdb.png" />
         <p>Inspired by Jinni, this was an attempt to create a new, efficent game search engine!</p>
-        <p>This project led--? me to GameWiser.</p>
+        <p>This project motivated me to work with a partner at GameWiser</p>
         <p>Working prototype!</p>
         <footer>
-            <span class="tag">Ruby on Rails</span>
-            <span class="tag">MongoDB</span>
-            <span class="tag">jQuery</span>
+            <span class="tag glass">Ruby on Rails</span>
+            <span class="tag glass">MongoDB</span>
+            <span class="tag glass">jQuery</span>
+        </footer>
+    </article>
+    
+    
+    <article id="page7" class="screen glass">
+        <header>
+            <h1>FaleCliente!</h1>
+        </header>
+        <img class="img_desc" src="images/gallery/FC.png" />
+        <p>Real-time costumer support service via website</p>
+        <p>Much inspired by Olark, but targeting Brazilian audience. The prototype is currently on</p>
+        <footer>
+            <span class="tag glass">Node.js</span>
+            <span class="tag glass">Redis</span>
+            <span class="tag glass">jQuery</span>
+        </footer>
+    </article>
+    
+    
+    <article id="page7" class="screen glass">
+        <header>
+            <h1>Z5 - Gamedesign</h1>
+        </header>
+        <img class="img_desc" src="images/gallery/z5.png" />
+        <p>A zombie survival game design</p>
+        <p>Kind of game where collecting evidences, roleplaying smart, and managing well a small group of survivors are key factors for victory (along a fair share of luck)</p>
+        <footer>
+            <span class="tag glass">Game</span>
         </footer>
     </article>
     
     
     
-    <article id="pageFinal" class="screen-glass">
+    <article id="pageFinal" class="screen glass">
         <header>
             <h1>Contact?</h1>
         </header>
