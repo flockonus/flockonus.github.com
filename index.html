@@ -2,10 +2,11 @@
 <!-- saved from url=(0049)http://fiddle.jshell.net/flockonus/seB73/30/show/ -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
-  <title>Flockonus Portfolio 2.0 - jsFiddle demo by flockonus</title>
+  <title>Flockonus Portfolio - Fabiano P Soriani - Web Developer</title>
   
   <script type="text/javascript" src="javascripts/jquery-1.7.1.js"></script>
   <script type="text/javascript" src="javascripts/jquery.rotate3di.js"></script>
+  <script type="text/javascript" src="javascripts/main.js"></script>
   
   <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
   <link href="style.css" rel="stylesheet" type="text/css" />
@@ -14,234 +15,6 @@
 
 </style>
   
-
-
-<script type="text/javascript">//<![CDATA[ 
-$(window).load(function(){
-var j = jQuery;
-
-function getDimension() {
-    var jdoc = j(document)
-        //w = jdoc.width(),
-        //h = jdoc.height();
-    //console.log('dimension', w, h);
-    return {
-        w: jdoc.width(),
-        h: jdoc.height(),
-    }
-}
-
-// dont use for panel anymore!
-
-
-function positionElements(dim) {
-    //var jdoc = j(document),
-    //    w = jdoc.width(),
-    //    h = jdoc.height(),
-    var padding1 = 5,
-        arrowBtW = 20;
-    // ensure header size!
-    j('body > header').css('height', dim.h * 0.18);
-    //j('.screen:last').hide()
-}
-
-// all percentages, so never goes wrong
-var spotPos = [[-28, -25], [0, -35], [28, -25], [35, 5], [28, 30], [0, 45], [-28, 30], [-35, 5]];
-function rotateSpots(step, duration) {
-    var pos = spotPos[ step % spotPos.length ];
-    //console.log('spot..', pos, step, duration);
-    j('.spot:first')
-        .css('left', pos[0]+'%')
-        .css('top', pos[1]+'%');
-    pos = spotPos[ (step+4) % spotPos.length ];
-    j('.spot:last')
-        .css('left', pos[0]+'%')
-        .css('top', pos[1]+'%');
-    setTimeout(rotateSpots, duration, step + 1, duration);
-}
-
-function correctCSS (dim) {
-    //var css = document.styleSheets[1]//$('style')[0].sheet.rules;
-      //, perspective = Math.floor(90/0.060)+'px'
-    var glasses = {
-          base_val: [0.8581235697940504, 0.03489702517162471, 0.36041189931350115],//[0.8581235697940504, 0.03489702517162471, 0.36041189931350115],
-          right: {
-              template: "perspective(?px) rotateY(-82deg) translate3d(?px,0px,-?px) !important;",
-          },
-          left: {
-              template: "perspective(?px) rotateY(82deg) translate3d(-?px,0em,-?px) !important;",
-          }
-      }
-    //if( dim.w < 1300 ) glasses.base_val[0] = glasses.base_val[0]*( 0.8 )
-    var diffW = dim.w - 1750
-    glasses.base_val[0] = glasses.base_val[0]*( 1+(diffW*0.0006) )
-    //console.log( diffW, 1+(diffW*0.0005), glasses.base_val )
-    
-    for (var i=0; i < glasses.base_val.length; i++) {
-      glasses.right.template = glasses.right.template.replace( /\?/, glasses.base_val[i]*dim.w )
-      glasses.left.template = glasses.left.template.replace( /\?/, glasses.base_val[i]*dim.w )
-    };
-    
-    // TODO set font-size!
-    
-    // TODO, marcar esse elemento, e nao ficar adicionando sheet toda hora!
-    var style = document.createElement('style');
-    style.innerHTML = ".screen.right { -webkit-transform: "+glasses.right.template+" } "+".screen.left  { -webkit-transform: "+glasses.left.template+" }";
-    j('head').append( style );
-    
-    
-    
-    // nao ta escrevendo no Chrome! pq?
-    //css.insertRule( ".screen.right { -webkit-transform: "+glasses.right.template+" }", 0 )
-    //css.insertRule( ".screen.left  { -webkit-transform: "+glasses.left.template+" }", 1 )
-    
-    console.log('dim', dim.w, dim.h);
-}
-
-function orderGlasses () {
-  var glasses = j('.screen');
-  glasses.filter(':eq(0)').addClass('middle')
-  glasses.filter(':eq(1)').addClass('right')
-  glasses.filter(':gt(1)').addClass('hidden').addClass('right')
-  setTitle();
-}
-
-function setTitle () {
-  j('#panel h1').text( j('.screen.middle h1').text() );
-}
-
-function bindArrowKeys(){
-    var lastTap = new Date();
-    j(document).keydown( function(e) {
-        if( new Date() - lastTap > 100 ){
-            
-            if( e.which === 39 ){
-                nextGlass();
-                lastTap = new Date();
-            }
-            if( e.which === 37 ){
-                prevGlass();
-                lastTap = new Date();
-            }
-        }
-    })
-}
-
-function nextGlass() {
-    var glass = j('.screen.middle')
-      , jarrow = j('#panel .next');
-    
-    jarrow.css('-webkit-transform', 'perspective(150px) rotateY(15deg)' );
-    var oldShadow = jarrow.css('box-shadow');
-    jarrow.css('box-shadow', 'black 2px 2px 4px' );
-    setTimeout(function(){
-        jarrow.css('-webkit-transform', 'perspective(150px) rotateY(0deg)' );
-        jarrow.css('box-shadow', oldShadow );
-    },200)
-    
-    if( glass.next().size() ){
-        glass.removeClass('middle').addClass('left');
-        glass.prev().addClass('hidden');//.removeClass('left')
-        glass.next().addClass('middle').removeClass('right');
-        glass.next().next().addClass('right').removeClass('hidden');
-    }
-    setTitle();
-    return false;
-}
-
-function prevGlass() {
-    var glass = j('.screen.middle')
-      , jarrow = j('#panel .back');
-    
-    jarrow.css('-webkit-transform', 'perspective(150px) rotateY(-15deg)' );
-    var oldShadow = jarrow.css('box-shadow');
-    jarrow.css('box-shadow', 'black 2px 2px 4px' );
-    setTimeout(function(){
-        jarrow.css('-webkit-transform', 'perspective(150px) rotateY(0deg)' );
-        jarrow.css('box-shadow', oldShadow );
-    },200)
-    
-    j('#panel .back').css('-webkit-transform', 'perspective(150px) rotateY(-15deg)' )
-    if( glass.prev().size() ){
-        glass.removeClass('middle').addClass('right');
-        glass.prev().addClass('middle').removeClass('left');
-        glass.prev().prev().addClass('left').removeClass('hidden');
-        glass.next().addClass('hidden');//.removeClass('right')
-    }
-    setTitle();
-    return false;
-}
-
-// SPAM BE GONE
-function printEmail () {
-  var aaa = '@'
-    , bbb = 'il.com';
-  
-  j('#econtact').text( ['fabiano', 'soriani', aaa, 'gma', bbb ].join('') )
-}
-
-function spinPortrait(){
-    $('#portrait').rotate3Di('+=360', 20000, {easing:'linear', complete: spinPortrait });
-}
-
-function mySideChange(front) {
-    if (front) {
-        $(this).parent().find('.front').show();
-        $(this).parent().find('.back').hide();
-    } else {
-        $(this).parent().find('.front').hide();
-        $(this).parent().find('.back').show();
-    }
-}
-
-function addEffectImgLinks () {
-    $('.screen img').hover(
-        function () {
-            var jthis = j(this);
-            jthis.css('box-shadow', "rgba(15, 102, 252, 0.7) 0 4px 5px, rgba(15, 102, 252, 0.7) 0 -4px 5px");
-            //jthis.css('opacity', 0.5);
-            //alert(1)
-            //$(this).find('div').stop().rotate3Di('flip', 250, {direction: 'clockwise', sideChange: mySideChange});
-        },
-        function () {
-            var jthis = j(this);
-            jthis.css('box-shadow', '');
-            //jthis.css('opacity', 1);
-            //$(this).find('div').stop().rotate3Di('unflip', 500, {sideChange: mySideChange});
-            //alert(2)
-            
-        }
-    );
-    
-    i = $('img:eq(4)'); console.log( i.position(), i.width(), i.height() )
-}
-
-function init() {
-    //setTimeout( function(){j("#welcome").fadeOut();}, 1000);
-    var dim = getDimension();
-    positionElements(dim);
-    correctCSS(dim);
-    j('#panel .next').click( nextGlass );
-    j('#panel .back').click( prevGlass );
-    
-    rotateSpots(0, 1500);
-    
-    orderGlasses();
-    bindArrowKeys();
-    //setTimeout( function(){
-    //    j('h1:first').addClass('h1distort');
-    //}, 1000);
-    printEmail();
-    //spinPortrait();
-    addEffectImgLinks();
-}
-init();
-
-
-});//]]>  
-
-</script>
-
 
 </head>
 <body>
@@ -252,7 +25,7 @@ init();
 <header style="height: 156.06px; "> 
     <nav id="panel">
         <div class="back" style="-webkit-transform-origin-x: 100%; box-shadow: rgb(0, 0, 0) -5px 5px 5px 0px;"> &lt; </div>
-        <h1 class="h1distort"> Page Title </h1>
+        <h1 class="h1distort">Fabiano P Soriani Web Developer</h1>
         <div class="next"> &gt; </div>
     </nav>
 </header>
@@ -268,17 +41,18 @@ init();
             <img id="portrait" src="images/gallery/face-round.png" />
         </div>
         -->
-        <p>I am a <b>developer</b>, especialized in back-end and passionate for front-end state of art</p>
+        <p>I am a <em>developer</em>, especialized in back-end and passionate for front-end state of art</p>
         <p>Versed in Node.js, Ruby, MongoDB, SQL, jQuery, CSS, HTML5, SEO, UX</p>
-        <p>This website shows some of my most <b>recent Portfolio</b></p>
-        <p>Consult <b><a href="https://docs.google.com/document/d/1gi8UQ31akugdgfq4vlD_8MexFdQBv8bU5ojwE6npF-Q/edit">my curriculum</a></b> for formal education and past jobs</p>
+        <p>This website shows some of my most <em>recent Portfolio</em>, best displayed at most modern browsers</p>
+        <p>Consult <b><a target="_blank" href="https://docs.google.com/document/d/1gi8UQ31akugdgfq4vlD_8MexFdQBv8bU5ojwE6npF-Q/edit">my curriculum</a></b> for formal education and past jobs</p>
+        <p style="color:#444; font-style: italic;"><small>Do a hard refresh to ensure you are viewing the lastest version of my website<br />(ctrl+shift+r or ctrl+f5)</small></p>
         
-        <div style="text-align: right; width: 5%;position: absolute;right: 2%;bottom: 2%;"> <!-- style="position: absolute; left: 0; bottom: 0;" -->
-            <a href="http://www.linkedin.com/profile/view?id=38323775" target="_blank"><img style="width: 100%;" src="images/gallery/linkedin.png" alt="linkedin" /><a/><br />
-            <a href="http://www.twitter.com/flockonus" target="_blank"><img style="width: 100%;" src="images/gallery/twitter.png" alt="twitter" /></a><br />
-            <a href="http://www.fabianosoriani.wordpress.com" target="_blank"><img style="width: 100%;" src="images/gallery/wordpress-2.png" alt="wordpress blog" /></a><br />
-            <a href="http://www.github.com/flockonus" target="_blank"><img style="width: 100%;" src="images/gallery/github.png" alt="github" /></a><br />
-            <a href="http://www.facebook.com/fabiano.soriani" target="_blank"><img style="width: 100%;" src="images/gallery/facebook.png" alt="facebook" /></a><br />
+        <div id="refs_column">
+            <a href="http://www.linkedin.com/profile/view?id=38323775" target="_blank"><img src="images/gallery/linkedin.png" alt="linkedin" /></a><br />
+            <a href="http://www.twitter.com/flockonus" target="_blank"><img src="images/gallery/twitter.png" alt="twitter" /></a><br />
+            <a href="http://www.fabianosoriani.wordpress.com" target="_blank"><img src="images/gallery/wordpress-2.png" alt="wordpress blog" /></a><br />
+            <a href="http://www.github.com/flockonus" target="_blank"><img src="images/gallery/github.png" alt="github" /></a><br />
+            <a href="http://www.facebook.com/fabiano.soriani" target="_blank"><img src="images/gallery/facebook.png" alt="facebook" /></a><br />
         </div>
     </article>
     
@@ -306,7 +80,9 @@ init();
         <header>
             <h1>Flockin Games</h1>
         </header>
-        <img class="img_desc" src="images/gallery/flockin2.jpg" />
+        <a href="http://flockin.com.br" class="popout">
+            <img class="img_desc" src="images/gallery/flockin2.jpg" />
+        </a>
         <p>Extensive project aiming tracking player progress in training games.</p>
         <p>Involved projecting and implementing a Node.js progress tracker, also generating reports and providing administrative interface.</p>
         <footer>
@@ -321,10 +97,12 @@ init();
         <header>
             <h1>Blickz!</h1>
         </header>
-        <img class="img_desc" src="images/gallery/blickz.png" />
+        <a href="http://blickz.nodejitsu.com" class="popout">
+            <img class="img_desc" src="images/gallery/blickz.png" />
+        </a>
         <p>Developed (along a group) under 48 hours for the game marathon Global Game Jam!</p>
         <p>We used AS3 as programming language and Flixel as framework.</p>
-        <p>Won <b>regional awards</b> for: innovative gameplay, fun. Second place for: audio, control, multiplayer and point sum.</p>
+        <p>Won <em>regional awards</em> for: innovative gameplay, fun. Second place for: audio, control, multiplayer and point sum.</p>
         <footer>
             <span class="tag glass">ActionScript3</span>
             <span class="tag glass">flixel</span>
@@ -336,9 +114,11 @@ init();
         <header>
             <h1>F.I.R.E.</h1>
         </header>
-        <img class="img_desc" src="images/gallery/bananabrains_fire.jpg" />
-        <p>Team of 3 with an ambitious project, aiming to create a F2P game that put the player in the life of a ascending soccer player as a MMO</p>
-        <p>Our beta had over 40 players, they spent an average of 3 min/day. The prototype is still up and running</p>
+        <a href="http://soccerhero.heroku.com" class="popout">
+            <img class="img_desc" src="images/gallery/bananabrains_fire.jpg" />
+        </a>
+        <p>Team of 3, an ambitious project aiming to create a F2P game where the player roleplayed the life of an ascending soccer player</p>
+        <p>The alpha had over 40 players, they spent an average of 3 min/day (browser mmo). The prototype is still up and running</p>
         <footer>
             <span class="tag glass">Game</span>
             <span class="tag glass">Ruby on Rails</span>
@@ -352,7 +132,9 @@ init();
         <header>
             <h1>FindGamesDB</h1>
         </header>
-        <img class="img_desc" src="images/gallery/fgdb.png" />
+        <a href="http://findgamesdb.herokuapp.com" class="popout">
+            <img class="img_desc" src="images/gallery/fgdb.png" />
+        </a>
         <p>Inspired by Jinni, this was an attempt to create a new, efficent game search engine!</p>
         <p>This project motivated me to work with a partner at GameWiser</p>
         <p>Working prototype!</p>
@@ -368,9 +150,11 @@ init();
         <header>
             <h1>FaleCliente!</h1>
         </header>
-        <img class="img_desc" src="images/gallery/FC.png" />
-        <p>Real-time costumer support service via website</p>
-        <p>Much inspired by Olark, but targeting Brazilian audience. The prototype is currently on</p>
+        <a href="http://fcchat.herokuapp.com/" class="popout">
+            <img class="img_desc" src="images/gallery/FC.png" />
+        </a>
+        <p>Real-time costumer support service via website, much inspired by Olark, targeting Brazilian audience</p>
+        <p>The prototype is currently on, it lives as a proof-of-concept</p>
         <footer>
             <span class="tag glass">Node.js</span>
             <span class="tag glass">Redis</span>
@@ -383,7 +167,9 @@ init();
         <header>
             <h1>Z5 - Gamedesign</h1>
         </header>
-        <img class="img_desc" src="images/gallery/z5.png" />
+        <a href="z5.html" class="popout">
+            <img class="img_desc" src="images/gallery/z5.png" />
+        </a>
         <p>A zombie survival game design</p>
         <p>Kind of game where collecting evidences, roleplaying smart, and managing well a small group of survivors are key factors for victory (along a fair share of luck)</p>
         <footer>
@@ -391,6 +177,21 @@ init();
         </footer>
     </article>
     
+    <article id="page8" class="screen glass">
+        <header>
+            <h1>Javascript InMotion</h1>
+        </header>
+        <a href="http://inmotion.jaeh.net" class="popout">
+            <img class="img_desc" src="images/gallery/javascript_inmotion_canvas.jpg" />
+        </a>
+        <p>A small HTML5 Canvas tween both editor and engine.</p>
+        <p>This was a hobby project started at 2010, back then my JS code quality was low.</p>
+        <p>The latest version is still up</p>
+        <footer>
+            <span class="tag glass">Game</span>
+            <span class="tag glass">Javascript</span>
+        </footer>
+    </article>
     
     
     <article id="pageFinal" class="screen glass">
