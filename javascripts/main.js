@@ -1,4 +1,4 @@
-$(window).load(function(){
+$(window).ready(function(){
 var j = jQuery
   , browser = '';
 
