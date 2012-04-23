@@ -124,6 +124,7 @@ a:hover{
     display: none;
 }
 
+
 .img_desc{
     float: right;
     border-radius: 10px;
@@ -134,6 +135,7 @@ a:hover{
     /*
     -moz-transition: all 0.5s ease-in-out;
     -webkit-transition: all 0.5s ease-in-out;*/
+		box-shadow: rgba(15, 102, 252, 0.7) 0 4px 5px, rgba(15, 102, 252, 0.7) 0 -4px 5px;
 }
 
 #refs_column{

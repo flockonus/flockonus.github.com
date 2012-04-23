@@ -215,8 +215,8 @@ function init() {
     //    j('h1:first').addClass('h1distort');
     //}, 1000);
     printEmail();
-    //spinPortrait();
-    addEffectImgLinks();
+    // ridiculous, spinPortrait();
+    // no more, addEffectImgLinks();
     oldBackShadow = j('#panel .back').css('box-shadow');
     oldNextShadow = j('#panel .next').css('box-shadow');
 }
