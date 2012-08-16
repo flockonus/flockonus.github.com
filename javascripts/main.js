@@ -196,7 +196,6 @@ function addEffectImgLinks () {
             //alert(2)
         }
     );
-    j('a.popout').attr('target','_blank');
 }
 
 function init() {
@@ -217,6 +216,7 @@ function init() {
     printEmail();
     // ridiculous, spinPortrait();
     // no more, addEffectImgLinks();
+    j('a.popout').attr('target','_blank');
     oldBackShadow = j('#panel .back').css('box-shadow');
     oldNextShadow = j('#panel .next').css('box-shadow');
 }
